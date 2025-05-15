@@ -1,110 +1,194 @@
-/* Reset + Fonts */
-body {
+
+/* ---- reset margin ---- */
+* {
     margin: 0;
-    font-family: 'Oswald', sans-serif;
-    background-color: #fff;
-    color: #000;
+    padding: 0;
+    box-sizing: border-box;
   }
   
-  /* Navigation Bar */
+  body {
+    font-family: 'Helvetica Neue', sans-serif;
+    line-height: 1.4;
+  }
+  
+  /* ---- navagation bar ---- */
   .navbar {
+    background-color: #007bff;
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #0070c9;
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 12px 20px;
   }
   
   .logo {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
   }
   
-  .icon {
-    width: 20px;
-    margin-left: 15px;
-    filter: invert(1);
+  .icon, .nav-right svg, .nav-left svg {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
+    fill: white;
     cursor: pointer;
   }
-  
-  .nav-left, .nav-right {
+
+  .nav-right{
     display: flex;
     align-items: center;
+    gap: 20px;
   }
   
-  /* Hero Section */
+  /* -- Banner -- */
   .hero {
-    height: 100vh;
+    height: 60vh;
     background-size: cover;
     background-position: center;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  .hero1 {
+    background-position: center 65%; /* Adjusted position for better visibility */
+}
+
+  
+  .hero-text {
     text-align: center;
     color: white;
-    position: relative;
+    padding: 20px;
   }
   
-  .hero-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .hero-text p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    font-weight: 300;
+  .hero h2 {
+    font-size: 36px;
     letter-spacing: 1px;
+    margin-bottom: 15px;
   }
   
-  /* Button */
+  .hero p {
+    font-size: 16px;
+    margin-bottom: 27px;
+  }
+  
   .btn {
     background-color: black;
     color: white;
-    padding: 12px 25px;
+    padding: 12px 24px;
     text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 1px;
-    border-radius: 4px;
+    font-weight: bold;
+    border-radius: 8px;
     transition: background-color 0.3s ease;
+    cursor: pointer;
   }
   
   .btn:hover {
     background-color: #333;
   }
-  
-  /* Feature Section */
-  .feature {
-    background-color: #ccc;
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+  .side-menu{
+    padding: 24px;
+    position: fixed;
+    top: -60vh;
+    left: 0;
+    width: 100%;
+    transition: top 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    z-index: 999;
+  }
+
+  .side-menu.active{
+    top: 0;
+    opacity: 1;
+}
+    
+  .side-menu h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #222;
     text-align: center;
   }
   
-  .feature h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: white;
+  /* 分类菜单列表样式 */
+  .category-list {
+    list-style: none;
+    padding: 0;
+    
   }
   
-  /* Responsive */
+  .category-list li {
+    margin-bottom: 16px;
+  }
+  
+  .category-list li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease;
+    gap: 8px;
+  }
+  
+  .category-list li a:hover {
+    color: #007bff;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+  }
+  
+  .overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* --- mobie -- */
   @media (max-width: 768px) {
-    .hero-text h2 {
-      font-size: 2rem;
+    .navbar {
+      flex-direction: row;
+      padding: 10px 16px;
     }
-    .feature h2 {
-      font-size: 1.5rem;
+  
+    .logo {
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .nav-right{
+        gap: 10px;
+    }
+  
+    .hero {
+      height: 45vh;
+    }
+  
+    .hero h2 {
+      font-size: 24px;
+    }
+  
+    .hero p {
+      font-size: 14px;
+    }
+  
+    .btn {
+      font-size: 14px;
+      padding: 10px 20px;
     }
   }
-  
