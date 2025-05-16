@@ -9,11 +9,6 @@ menuBtn.addEventListener('click', () => {
   overlay.classList.add('active');
 });
 
-closeBtn.addEventListener('click', () => {
-  sideMenu.classList.remove('active');
-  overlay.classList.remove('active');
-});
-
 overlay.addEventListener('click', () => {
   sideMenu.classList.remove('active');
   overlay.classList.remove('active');
