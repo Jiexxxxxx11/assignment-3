@@ -59,3 +59,16 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+//favourite button
+const favBtn = document.getElementById("fav-btn");
+const favIcon = document.getElementById("fav-icon");
+
+favBtn.addEventListener("click", () => {
+  favBtn.classList.toggle("active");
+  if (favBtn.classList.contains("active")) {
+    favIcon.textContent = "♥";
+  } else {
+    favIcon.textContent = "♡";
+  }
+});
