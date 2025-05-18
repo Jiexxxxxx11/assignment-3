@@ -6,10 +6,10 @@ const products = {
     price: 78.95,
     sale: true,
     images: [
-      "../images/product-list/stussy hat.jpg.webp",
-      "../images/product-list/stussy hat2.webp",
-      "../images/product-list/stussy hat3.webp",
-      "../images/product-list/stussy hat4.jpg"
+      "../images/product-list/stussyhat.jpg.webp",
+      "../images/product-list/stussyhat2.webp",
+      "../images/product-list/stussyhat3.webp",
+      "../images/product-list/stussyhat4.jpg"
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
     description: "A lightweight shell hoodie dyed with a unique wave pattern. Breathable and wind-resistant.",
@@ -31,7 +31,7 @@ const products = {
       "../images/product-list/bape.jpg.webp",
       "../images/product-list/bape2.webp",
       "../images/product-list/bape3.webp",
-      "../images/product-list/bape4.webp",
+      "../images/product-list/bape4.webp"
     ],
     sizes: ["S", "M", "L", "XL"],
     description: "Classic BAPE logo printed tee. Comfortable and stylish.",
