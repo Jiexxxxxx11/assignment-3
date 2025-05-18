@@ -9,7 +9,7 @@
     font-family: 'Helvetica Neue', sans-serif;
     line-height: 1.4;
   }
-/* ---- navagation bar ---- */
+/* ---- navagation bar2 ---- */
 .navbar {
     background-color: #007bff;
     color: white;
@@ -38,6 +38,26 @@
     display: flex;
     align-items: center;
     gap: 20px;
+  }
+
+  .nav-icons{
+   position: relative;
+   display: inline-block;
+  }
+
+ .red-dot {
+    position: absolute;
+    top: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  display: none;
+  }
+  
+  .red-dot.active {
+    display: block;
   }
 
 /* ---- product images ---- */
