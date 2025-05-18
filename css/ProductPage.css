@@ -115,8 +115,11 @@
     border-radius: 6px;
     cursor: pointer;
     border: none;
+    background-color: #007bff;
+    color: white;
   }
 
+/* ---- favourite botton ---- */
   .btn-fav{
     background-color: white;
     color: black;
@@ -141,16 +144,12 @@
   .btn-fav.active #fav-icon{
     content: "♥"
   }
-  .btn-add {
-    background-color: #007bff;
-    color: white;
-  }
-
+  
   .btn-fav {
     background-color: white;
     color: black;
   }
-
+/* ---- size botton ---- */
   .size-options {
     display: flex;
     gap: 10px;
@@ -171,6 +170,12 @@
   .size-btn:hover {
     background-color: #007bff;
     color:#050505
+  }
+
+  .size-btn.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
   }
 
   .accordion {

@@ -38,10 +38,27 @@ window.addEventListener("DOMContentLoaded", () => {
   // 尺寸按钮
   const sizeContainer = document.querySelector(".size-options");
   sizeContainer.innerHTML = "";
+
+  let selectedSize = null;
+
   product.sizes.forEach(size => {
     const btn = document.createElement("button");
     btn.className = "size-btn";
     btn.textContent = size;
+
+    btn.addEventListener("click", () => {
+      //if be selected, remove selected 
+      if (selectedSize === btn) {
+        btn.classList.remove("selected");
+        selectedSize = null;
+      } else {
+        // remove selected class from previous button
+      if (selectedSize) {
+        selectedSize.classList.remove("selected");
+      }
+      btn.classList.add("selected");
+      selectedSize = btn;}
+    });
     sizeContainer.appendChild(btn);
   });
 
