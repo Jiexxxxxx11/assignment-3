@@ -13,7 +13,6 @@ const products = {
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
     description: "A lightweight shell hoodie dyed with a unique wave pattern. Breathable and wind-resistant.",
-    delivery: "Free shipping on orders over $100 AUD. Free 30-day returns.",
     details: "Material: 100% Nylon. Lining: Polyester mesh. Made in USA.",
     reviews: [
       { user: "Alex", rating: 5, comment: "Great fit and looks amazing!" },
@@ -35,7 +34,6 @@ const products = {
     ],
     sizes: ["S", "M", "L", "XL"],
     description: "Classic BAPE logo printed tee. Comfortable and stylish.",
-    delivery: "Free shipping on orders over $100 AUD.",
     details: "Material: 100% Cotton. Made in Japan.",
     reviews: []
   },
@@ -54,7 +52,6 @@ const products = {
     ],
     sizes: ["S", "M", "L"],
     description: "Palace hoodie featuring the iconic Tri-Ferg logo with contrast stitching.",
-    delivery: "Free 30-day returns. Shipping fee applies under $100 AUD.",
     details: "Material: 80% Cotton, 20% Polyester.",
     reviews: [{ user: "Jay", rating: 5, comment: "Looks even better in person." }]
   },
@@ -73,7 +70,6 @@ const products = {
     ],
     sizes: ["S", "M", "L", "XL"],
     description: "Iconic Carhartt work jacket with a structured fit.",
-    delivery: "Free shipping over $100 AUD. Standard delivery 3-5 business days.",
     details: "Material: 100% Cotton Duck Canvas. Made in USA.",
     reviews: []
   },
@@ -92,7 +88,6 @@ const products = {
     ],
     sizes: ["US 7", "US 8", "US 9", "US 10", "US 11"],
     description: "Low-top edition of the legendary Air Jordan 11 silhouette.",
-    delivery: "Free returns within 30 days.",
     details: "Patent leather upper with Zoom Air cushioning.",
     reviews: [
       { user: "Lee", rating: 5, comment: "Amazing comfort and retro vibe!" }
@@ -113,7 +108,6 @@ const products = {
     ],
     sizes: ["M", "L", "XL"],
     description: "Stone Island's signature overshirt in garment-dyed cotton.",
-    delivery: "Express delivery available. Free returns.",
     details: "Material: 100% Cotton. Made in Italy.",
     reviews: []
   }

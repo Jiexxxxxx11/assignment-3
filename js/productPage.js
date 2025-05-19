@@ -35,33 +35,6 @@ window.addEventListener("DOMContentLoaded", () => {
     thumbnailContainer.appendChild(img);
   });
 
-  // 尺寸按钮
-  const sizeContainer = document.querySelector(".size-options");
-  sizeContainer.innerHTML = "";
-
-  let selectedSize = null;
-
-  product.sizes.forEach(size => {
-    const btn = document.createElement("button");
-    btn.className = "size-btn";
-    btn.textContent = size;
-
-    btn.addEventListener("click", () => {
-      //if be selected, remove selected 
-      if (selectedSize === btn) {
-        btn.classList.remove("selected");
-        selectedSize = null;
-      } else {
-        // remove selected class from previous button
-      if (selectedSize) {
-        selectedSize.classList.remove("selected");
-      }
-      btn.classList.add("selected");
-      selectedSize = btn;}
-    });
-    sizeContainer.appendChild(btn);
-  });
-
   // 可选：加载评论
   const reviewSection = document.querySelector(".review-section");
   reviewSection.innerHTML = "";
@@ -77,6 +50,33 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// 尺寸按钮
+const sizeContainer = document.querySelector(".size-options");
+sizeContainer.innerHTML = "";
+
+let selectedSize = null;
+
+product.sizes.forEach(size => {
+  const btn = document.createElement("button");
+  btn.className = "size-btn";
+  btn.textContent = size;
+
+  btn.addEventListener("click", () => {
+    //if be selected, remove selected 
+    if (selectedSize === btn) {
+      btn.classList.remove("selected");
+      selectedSize = null;
+    } else {
+      // remove selected class from previous button
+    if (selectedSize) {
+      selectedSize.classList.remove("selected");
+    }
+    btn.classList.add("selected");
+    selectedSize = btn;}
+  });
+  sizeContainer.appendChild(btn);
+});
+
 //favourite button
 const favBtn = document.getElementById("fav-btn");
 const favIcon = document.getElementById("fav-icon");
@@ -89,3 +89,38 @@ favBtn.addEventListener("click", () => {
     favIcon.textContent = "♡";
   }
 });
+
+// Add to cart button
+const addBtn = document.querySelector(".btn-add");
+
+addBtn.addEventListener("click", () => {
+  if (!selectedSize) {
+    alert("Please select a size.");
+    return;
+  }
+
+  const cartItem = {
+    id: id,
+    name: product.name,
+    brand: product.brand,
+    size: selectedSize.textContent,
+    price: product.price,
+    image: product.images[0], // Assuming the first image is the main one
+  };
+
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push(cartItem);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Product added to cart!");
+
+  addBtn.disabled = true;
+  addBtn.textContent = "Added!";
+  setTimeout(() => {
+    addBtn.disabled = false;
+    addBtn.textContent = "ADD TO BAG";
+  }, 1500);
+});
+
+
