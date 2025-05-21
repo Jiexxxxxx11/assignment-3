@@ -53,44 +53,53 @@
     </header>
 
 
-  <div class="cart-container">
-    <div class="cart-header">
-      <h1>BAG</h1>
-      <div class="cart-list"></div>
-    </div>
-    
-    <!-- empty -->
-    <div class="cart-empty">
-      <h2>Your cart is empty</h2>
-      <p>Looks like you haven't added anything yet.</p>
-      <a href="ProductList.html" class="btn">Start Shopping</a>
-    </div>
+ <div class="cart-container">
+    <div class="cart-content">
+       
+        <!-- left side -->
+        <!-- empty -->
+        <div class="cart-left">
+            <h1>BAG</h1>
+            <p>There are no items in your bag.</p>
+            <p class="hint">Go to get something !</p>
+            <a href="ProductList.html" class="btn">Start Shopping</a>
+          
+            <h2>Favourites</h2>
+            <p>There are no items saved to your favourites.</p>
+        </div>
+            <!-- add sth -->
+            <div class="cart-items hidden">
+                <h2>Shopping Bag</h2>
+                <div class="cart-list"></div> 
+            </div>
+        
 
-    <!-- summary -->
-    <div class="cart-summary">
-        <h2>Summary</h2>
-        <label for="promo-code">Do you have Promo Code?</label>
-        <p>Subtotal: <strong>$0.00 AUD</strong></p>
-        <p>Shipping: Fee</p>
-        <p>Total: <strong>$0.00 AUD</strong></p>
-        <button class="btn-checkout">CHECK OUT</button>
-    </div>
-    <!-- add sth -->
-    <div class="cart-items hidden">
-      <h2>Shopping Bag</h2>
-      <div class="cart-list"></div> 
-    </div>
-  </div>
- 
+         <!-- right side summary -->
+        <div class="cart-summary">
+            <h2>Summary</h2>
+            <p>Do you have a Promo Code? <span>⌄</span></p>
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span>$00.00 AUD</span>
+            </div>
+            <div class="summary-row">
+              <span>Shipping</span>
+              <span>Free</span>
+            </div>
 
-    <!-- 可选收藏展示 -->
-<div class="favourites-section hidden">
-    <h2>Favourites</h2>
-    <div class="fav-items">
-      <!-- 动态生成收藏商品项 -->
-    </div>
-  </div>
+            <hr class="divider" />
 
+            <div class="summary-row total">
+              <strong>Total</strong>
+              <strong>$00.00 AUD</strong>
+            </div>
+            <p class="gst-hint">Inclusive of 10% GST</p>
+
+            <hr class="divider" />
+
+            <button class="btn-checkout">Go To Checkout</button>
+          </div>
+    </div>
   </main>
 
   <script src="../js/cartPage.js"></script>
