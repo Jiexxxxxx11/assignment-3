@@ -1,11 +1,9 @@
 window.addEventListener("DOMContentLoaded", () => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  
-    const emptyState = document.querySelector(".cart-empty");
     const itemSection = document.querySelector(".cart-items");
-    const itemContainer = document.querySelector(".cart-items");
-    const summary = document.querySelector(".cart-summary");
-  //cart is empty
+    const itemList = document.querySelector(".cart-list");
+    const emptyState = document.querySelector(".cart-empty");
+  
     if (cart.length === 0) {
       emptyState.classList.remove("hidden");
       itemSection.classList.add("hidden");
@@ -14,10 +12,9 @@ window.addEventListener("DOMContentLoaded", () => {
   
     emptyState.classList.add("hidden");
     itemSection.classList.remove("hidden");
-
-    cartItemList.remove();
+    itemList.innerHTML = "";
   
-    let total = 0;
+    let subtotal = 0;
   
     cart.forEach(item => {
       const itemDiv = document.createElement("div");
@@ -25,16 +22,29 @@ window.addEventListener("DOMContentLoaded", () => {
       itemDiv.innerHTML = `
         <img src="${item.image}" alt="${item.name}" />
         <div class="item-details">
-          <h3>${item.brand}</h3>
+          <h3>$${item.price.toFixed(2)}</h3>
+          <p>${item.brand}</p>
           <p>${item.name}</p>
           <p>Size: ${item.size}</p>
-          <p>Price: $${item.price.toFixed(2)} AUD</p>
           <button class="remove-btn">Remove</button>
         </div>
       `;
-      itemContainer.insertBefore(itemDiv, summary);
-      total += item.price;
+      itemList.appendChild(itemDiv);
+      subtotal += item.price;
     });
   
-    summary.querySelector("strong").textContent = `$${total.toFixed(2)} AUD`;
+    // 更新 Summary 中的值
+    document.querySelectorAll(".summary-row span")[1].textContent = `$${subtotal.toFixed(2)} AUD`; // Subtotal
+    document.getElementById("total-num").textContent = `$${subtotal.toFixed(2)} AUD`;
   });
+    // Promo toggle section
+    const promoToggleBtn = document.getElementById("promo");
+    const promoInputContainer = document.getElementById("promo-input");
+  
+    if (promoToggleBtn && promoInputContainer) {
+      promoToggleBtn.addEventListener("click", () => {
+        promoInputContainer.classList.toggle("hidden");
+      });
+    } else {
+      console.warn("Promo Code button or input container not found.");
+    }

@@ -86,7 +86,7 @@ const products = {
       "../images/product-list/jordan3.jpg",
       "../images/product-list/jordan4.jpg"
     ],
-    sizes: ["US 7", "US 8", "US 9", "US 10", "US 11"],
+    sizes: ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12", "US 13"],
     description: "Low-top edition of the legendary Air Jordan 11 silhouette.",
     details: "Patent leather upper with Zoom Air cushioning.",
     reviews: [

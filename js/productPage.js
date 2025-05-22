@@ -1,5 +1,8 @@
+let selectedSize = null;
+let product = null;
 
 window.addEventListener("DOMContentLoaded", () => {
+
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
@@ -8,9 +11,8 @@ window.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  const product = products[id];
+  product = products[id];
 
-  // 填充基础信息
   document.querySelector(".brand").textContent = product.brand;
   document.querySelector(".name").textContent = product.name;
   document.querySelector(".price").textContent = `$${product.price.toFixed(2)} AUD`;
@@ -19,7 +21,6 @@ window.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".delivery-text").textContent = product.delivery;
   document.querySelector(".details-text").textContent = product.details;
 
-  // 图片切换逻辑
   const thumbnailContainer = document.querySelector(".thumbnail-images");
   const mainImage = document.querySelector(".main-image");
 
@@ -35,7 +36,6 @@ window.addEventListener("DOMContentLoaded", () => {
     thumbnailContainer.appendChild(img);
   });
 
-  // 可选：加载评论
   const reviewSection = document.querySelector(".review-section");
   reviewSection.innerHTML = "";
   if (product.reviews.length === 0) {
@@ -48,79 +48,76 @@ window.addEventListener("DOMContentLoaded", () => {
       reviewSection.appendChild(div);
     });
   }
-});
 
-// 尺寸按钮
-const sizeContainer = document.querySelector(".size-options");
-sizeContainer.innerHTML = "";
+  // 尺寸选择逻辑
+  const sizeContainer = document.querySelector(".size-options");
+  sizeContainer.innerHTML = "";
+  
 
-let selectedSize = null;
+  product.sizes.forEach(size => {
+    const btn = document.createElement("button");
+    btn.className = "size-btn";
+    btn.textContent = size;
 
-product.sizes.forEach(size => {
-  const btn = document.createElement("button");
-  btn.className = "size-btn";
-  btn.textContent = size;
+    btn.addEventListener("click", () => {
+      if (selectedSize === btn) {
+        btn.classList.remove("selected");
+        selectedSize = null;
+      } else {
+        if (selectedSize) selectedSize.classList.remove("selected");
+        btn.classList.add("selected");
+        selectedSize = btn;
+      }
+    });
 
-  btn.addEventListener("click", () => {
-    //if be selected, remove selected 
-    if (selectedSize === btn) {
-      btn.classList.remove("selected");
-      selectedSize = null;
-    } else {
-      // remove selected class from previous button
-    if (selectedSize) {
-      selectedSize.classList.remove("selected");
-    }
-    btn.classList.add("selected");
-    selectedSize = btn;}
+    sizeContainer.appendChild(btn);
   });
-  sizeContainer.appendChild(btn);
+
+  // 收藏按钮
+  const favBtn = document.getElementById("fav-btn");
+  const favIcon = document.getElementById("fav-icon");
+
+  favBtn.addEventListener("click", () => {
+    favBtn.classList.toggle("active");
+    favIcon.textContent = favBtn.classList.contains("active") ? "♥" : "♡";
+  });
+
+  // 添加到购物车
+  const addBtn = document.querySelector(".btn-add");
+
+  addBtn.addEventListener("click", () => {
+    if (!selectedSize) {
+      alert("Please select a size.");
+      return;
+    }
+
+    const cartItem = {
+      id: id,
+      name: product.name,
+      brand: product.brand,
+      size: selectedSize.textContent,
+      price: product.price,
+      image: product.images[0],
+    };
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(cartItem);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    addBtn.disabled = true;
+    addBtn.textContent = "Added!";
+    setTimeout(() => {
+      addBtn.disabled = false;
+      addBtn.textContent = "ADD TO BAG";
+    }, 1500);
+  });
+
+  // 图标点击跳转
+  document.getElementById("cart-icon").addEventListener("click", () => {
+    window.location.href = "../html/cartPage.html";
+  });
+
+  document.getElementById("bag-icon").addEventListener("click", () => {
+    window.location.href = "../html/cartPage.html";
+  });
 });
-
-//favourite button
-const favBtn = document.getElementById("fav-btn");
-const favIcon = document.getElementById("fav-icon");
-
-favBtn.addEventListener("click", () => {
-  favBtn.classList.toggle("active");
-  if (favBtn.classList.contains("active")) {
-    favIcon.textContent = "♥";
-  } else {
-    favIcon.textContent = "♡";
-  }
-});
-
-// Add to cart button
-const addBtn = document.querySelector(".btn-add");
-
-addBtn.addEventListener("click", () => {
-  if (!selectedSize) {
-    alert("Please select a size.");
-    return;
-  }
-
-  const cartItem = {
-    id: id,
-    name: product.name,
-    brand: product.brand,
-    size: selectedSize.textContent,
-    price: product.price,
-    image: product.images[0], // Assuming the first image is the main one
-  };
-
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  cart.push(cartItem);
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Product added to cart!");
-
-  addBtn.disabled = true;
-  addBtn.textContent = "Added!";
-  setTimeout(() => {
-    addBtn.disabled = false;
-    addBtn.textContent = "ADD TO BAG";
-  }, 1500);
-});
-
-
