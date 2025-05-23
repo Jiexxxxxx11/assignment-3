@@ -2,7 +2,6 @@ let selectedSize = null;
 let product = null;
 
 window.addEventListener("DOMContentLoaded", () => {
-
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
@@ -49,16 +48,13 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 尺寸选择逻辑
+  // ====== 尺寸选择 ======
   const sizeContainer = document.querySelector(".size-options");
   sizeContainer.innerHTML = "";
-  
-
   product.sizes.forEach(size => {
     const btn = document.createElement("button");
     btn.className = "size-btn";
     btn.textContent = size;
-
     btn.addEventListener("click", () => {
       if (selectedSize === btn) {
         btn.classList.remove("selected");
@@ -69,20 +65,46 @@ window.addEventListener("DOMContentLoaded", () => {
         selectedSize = btn;
       }
     });
-
     sizeContainer.appendChild(btn);
   });
 
-  // 收藏按钮
+  // ====== 收藏功能（增强）======
   const favBtn = document.getElementById("fav-btn");
   const favIcon = document.getElementById("fav-icon");
 
   favBtn.addEventListener("click", () => {
+    if (!selectedSize) {
+      alert("Please select a size before adding to favourites.");
+      return;
+    }
+
     favBtn.classList.toggle("active");
-    favIcon.textContent = favBtn.classList.contains("active") ? "♥" : "♡";
+    const sizeText = selectedSize ? selectedSize.textContent : "";
+    const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
+
+    const exists = favourites.some(fav => fav.id === id && fav.size === sizeText);
+
+    if (favBtn.classList.contains("active")) {
+      favIcon.textContent = "♥";
+      if (!exists) {
+        favourites.push({
+          id,
+          name: product.name,
+          brand: product.brand,
+          size: sizeText,
+          price: product.price,
+          image: product.images[0]
+        });
+        localStorage.setItem("favourites", JSON.stringify(favourites));
+      }
+    } else {
+      favIcon.textContent = "♡";
+      const updated = favourites.filter(fav => !(fav.id === id && fav.size === sizeText));
+      localStorage.setItem("favourites", JSON.stringify(updated));
+    }
   });
 
-  // 添加到购物车
+  // ====== 添加到购物车功能 ======
   const addBtn = document.querySelector(".btn-add");
 
   addBtn.addEventListener("click", () => {
@@ -112,7 +134,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }, 1500);
   });
 
-  // 图标点击跳转
+  // ====== 图标跳转 ======
   document.getElementById("cart-icon").addEventListener("click", () => {
     window.location.href = "../html/cartPage.html";
   });

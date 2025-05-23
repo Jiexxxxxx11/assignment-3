@@ -82,8 +82,8 @@
   }
   
   .cart-left {
-    flex: 2;
-    max-width: 800px;
+    flex: 2.5;
+    max-width: none;
     font-size: 16px;
     line-height: 1.9;
     margin-top: 10px;
@@ -139,41 +139,83 @@
   
   .cart-item {
     display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
+    flex-direction: column;
+    gap:6px;
+    flex: 1;
+    font-size: 16px;
+    padding-left: 10px;
   }
   
   .cart-item img {
     width: 120px;
     height: auto;
-    border-radius: 6px;
+    border:1px solid #aaa;
   }
   
   .item-details {
     flex: 1;
+    font-size:14px;
   }
   
   .item-details h3 {
+    margin:0;
     font-size: 18px;
-    margin-bottom: 4px;
+    font-weight:bold;
   }
   
   .item-details p {
-    font-size: 14px;
-    margin: 2px 0;
+    color: #444;
+    margin: 4px 0;
+  }
+
+  .item-details p:nth-child(4){
+    color:#999;
   }
   
   .remove-btn {
     background: none;
     border: none;
-    color: #007bff;
+    color: black;
     cursor: pointer;
-    padding: 0;
-    margin-top: 6px;
-    text-decoration: underline;
+    float: right;
+    font-size: 16px;
+  }
+
+  .favourite-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 20px;
+  }
+  
+  .favourite-item {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  /* ==== Quantity Controls ==== */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  
+  .quantity-control button {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .quantity-control span {
+    min-width: 20px;
+    text-align: center;
   }
   
   /* ---- Summary ---- */
