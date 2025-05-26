@@ -201,44 +201,24 @@
   }
 
 
- .btn-remove {
-        background-color: #020202;
-        color: white;
-        padding: 12px 24px;
-        border-radius: 24px;
-        font-weight: bold;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-      
-        width: 160px;              /* 固定宽度，防止自动放大 */
-        margin: 20px auto 0;       /* 居中 */
-        display: block;
-        text-align: center;
-      }
-  
-  /* ==== Quantity Controls ==== */
-.quantity-control {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 8px;
-  }
-  
-  .quantity-control button {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: 1px solid #000;
-    background: none;
+  .btn-checkout,
+  .go-checkout-btn {
+    background-color: #020202;
+    color: white;
+    padding: 12px 34px;
+    border-radius: 24px;
     font-weight: bold;
+    font-size: 16px;
+    border: none;
     cursor: pointer;
-  }
   
-  .quantity-control span {
-    min-width: 20px;
+    min-width: 200px;
+    margin: 20px auto 0;
+    display: block;
     text-align: center;
   }
+  
+  
   
   /* ---- Summary ---- */
   .cart-summary {
@@ -333,23 +313,7 @@
     margin: 20px 0;
   }
   
-  .btn-checkout {
-    background-color: #020202;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 16px;
-    border: none;
-    text-align: center;
   
-    /* ✅ 关键变化 */
-    display: inline-block;
-    min-width: 160px;
-    margin: 20px auto 0;      /* 居中 + 间距 */
-    align-self: center;   
-  }
   
   .cart-left, .cart-summary {
     display: flex;

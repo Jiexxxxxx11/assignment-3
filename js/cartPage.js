@@ -99,4 +99,12 @@ window.addEventListener("DOMContentLoaded", () => {
     } else {
       console.warn("Promo Code button or input container not found.");
     }
+
+    // 跳转到 Checkout 页面
+    const checkoutBtn = document.querySelector(".go-checkout-btn");
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener("click", () => {
+    window.location.href = "../html/CheckoutPage.html";
+    });
+}
   });
