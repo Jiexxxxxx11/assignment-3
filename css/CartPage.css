@@ -139,15 +139,15 @@
   
   .cart-item {
     display: flex;
-    flex-direction: column;
-    gap:6px;
+    flex-direction: row;
+    gap:80px;
     flex: 1;
     font-size: 16px;
     padding-left: 10px;
   }
   
   .cart-item img {
-    width: 120px;
+    width: 160px;
     height: auto;
     border:1px solid #aaa;
   }
@@ -155,6 +155,7 @@
   .item-details {
     flex: 1;
     font-size:14px;
+    font-weight: bold;
   }
   
   .item-details h3 {
@@ -171,15 +172,6 @@
   .item-details p:nth-child(4){
     color:#999;
   }
-  
-  .remove-btn {
-    background: none;
-    border: none;
-    color: black;
-    cursor: pointer;
-    float: right;
-    font-size: 16px;
-  }
 
   .favourite-list {
     display: flex;
@@ -190,11 +182,41 @@
   
   .favourite-item {
     display: flex;
-    align-items: flex-start;
+    flex-direction: row;
+    gap: 80px;
     padding-bottom: 20px;
     border-bottom: 1px solid #ddd;
   }
 
+  .favourite-item img {
+    width: 160px;
+    height: auto;
+    border: 1px solid #aaa;
+  }
+  
+  .favourite-item .item-details {
+    flex: 1;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+
+    .btn-remove {
+        background-color: #020202;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 24px;
+        font-weight: bold;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      
+        width: 160px;              /* 固定宽度，防止自动放大 */
+        margin: 20px auto 0;       /* 居中 */
+        display: block;
+        text-align: center;
+      }
+  }
   /* ==== Quantity Controls ==== */
 .quantity-control {
     display: flex;
@@ -312,18 +334,21 @@
   }
   
   .btn-checkout {
-    width: 100%;
     background-color: #020202;
     color: white;
     padding: 12px 24px;
     border-radius: 24px;
     font-weight: bold;
-    margin: 20px auto 0;
     cursor: pointer;
-    display: block;
     font-size: 16px;
     border: none;
     text-align: center;
+  
+    /* ✅ 关键变化 */
+    display: inline-block;
+    min-width: 160px;
+    margin: 20px auto 0;      /* 居中 + 间距 */
+    align-self: center;   
   }
   
   .cart-left, .cart-summary {

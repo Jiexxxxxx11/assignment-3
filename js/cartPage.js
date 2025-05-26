@@ -10,32 +10,6 @@ window.addEventListener("DOMContentLoaded", () => {
     const favSection = document.querySelector(".favourite-section");
     const noFav = document.querySelector(".no-fav");
   
-    // --- 1. 显示收藏内容 ---
-    if (favourites.length === 0) {
-      favList.innerHTML = "";
-      favSection.classList.remove("hidden");
-      noFav.classList.remove("hidden");
-    } else {
-      favList.innerHTML = "";
-      favSection.classList.remove("hidden");
-      noFav.classList.add("hidden");
-  
-      favourites.forEach((item, index) => {
-        const favDiv = document.createElement("div");
-        favDiv.className = "favourite-item";
-        favDiv.innerHTML = `
-          <img src="${item.image}" alt="${item.name}" width="80" />
-          <div style="margin-left: 16px;">
-            <h4>${item.brand}</h4>
-            <p>${item.name}</p>
-            <p>Size: ${item.size}</p>
-            <button class="remove-fav-btn" data-index="${index}">Remove</button>
-          </div>
-        `;
-        favList.appendChild(favDiv);
-      });
-    }
-  
     // --- 2. 显示购物车内容 ---
     if (cart.length === 0) {
       emptyState.classList.remove("hidden");
@@ -57,12 +31,38 @@ window.addEventListener("DOMContentLoaded", () => {
             <p>${item.brand}</p>
             <p>${item.name}</p>
             <p>Size: ${item.size}</p>
-            <button class="remove-btn" data-index="${index}">Remove</button>
+            <button class="btn-checkout remove-btn" data-index="${index}">Remove</button>
           </div>
         `;
         itemList.appendChild(itemDiv);
         subtotal += item.price;
       });
+
+      // --- 1. 显示收藏内容 ---
+    if (favourites.length === 0) {
+        favList.innerHTML = "";
+        favSection.classList.remove("hidden");
+        noFav.classList.remove("hidden");
+      } else {
+        favList.innerHTML = "";
+        favSection.classList.remove("hidden");
+        noFav.classList.add("hidden");
+    
+        favourites.forEach((item, index) => {
+          const favDiv = document.createElement("div");
+          favDiv.className = "favourite-item";
+          favDiv.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" width="80" />
+            <div style="margin-left: 16px;">
+              <h4>${item.brand}</h4>
+              <p>${item.name}</p>
+              <p>Size: ${item.size}</p>
+              <button class="btn-remove remove-fav-btn" data-index="${index}">Remove</button>
+            </div>
+          `;
+          favList.appendChild(favDiv);
+        });
+      }
   
       document.querySelectorAll(".summary-row span")[1].textContent = `$${subtotal.toFixed(2)} AUD`; // Subtotal
       document.getElementById("total-num").textContent = `$${subtotal.toFixed(2)} AUD`;
