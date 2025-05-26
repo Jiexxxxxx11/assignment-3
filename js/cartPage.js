@@ -10,16 +10,16 @@ window.addEventListener("DOMContentLoaded", () => {
     const favSection = document.querySelector(".favourite-section");
     const noFav = document.querySelector(".no-fav");
   
-    // --- 2. 显示购物车内容 ---
+    let subtotal = 0;
+  
+    // --- 购物车显示逻辑 ---
     if (cart.length === 0) {
       emptyState.classList.remove("hidden");
       itemSection.classList.add("hidden");
     } else {
       emptyState.classList.add("hidden");
       itemSection.classList.remove("hidden");
-  
       itemList.innerHTML = "";
-      let subtotal = 0;
   
       cart.forEach((item, index) => {
         const itemDiv = document.createElement("div");
@@ -37,38 +37,38 @@ window.addEventListener("DOMContentLoaded", () => {
         itemList.appendChild(itemDiv);
         subtotal += item.price;
       });
-
-      // --- 1. 显示收藏内容 ---
-    if (favourites.length === 0) {
-        favList.innerHTML = "";
-        favSection.classList.remove("hidden");
-        noFav.classList.remove("hidden");
-      } else {
-        favList.innerHTML = "";
-        favSection.classList.remove("hidden");
-        noFav.classList.add("hidden");
-    
-        favourites.forEach((item, index) => {
-          const favDiv = document.createElement("div");
-          favDiv.className = "favourite-item";
-          favDiv.innerHTML = `
-            <img src="${item.image}" alt="${item.name}" width="80" />
-            <div style="margin-left: 16px;">
-              <h4>${item.brand}</h4>
-              <p>${item.name}</p>
-              <p>Size: ${item.size}</p>
-              <button class="btn-remove remove-fav-btn" data-index="${index}">Remove</button>
-            </div>
-          `;
-          favList.appendChild(favDiv);
-        });
-      }
-  
-      document.querySelectorAll(".summary-row span")[1].textContent = `$${subtotal.toFixed(2)} AUD`; // Subtotal
-      document.getElementById("total-num").textContent = `$${subtotal.toFixed(2)} AUD`;
     }
   
-    // --- 3. 绑定 Remove 按钮（购物车） ---
+    // --- 收藏显示逻辑 ---
+    if (favourites.length === 0) {
+      favList.innerHTML = "";
+      favSection.classList.remove("hidden");
+      noFav.classList.remove("hidden");
+    } else {
+      favList.innerHTML = "";
+      favSection.classList.remove("hidden");
+      noFav.classList.add("hidden");
+  
+      favourites.forEach((item, index) => {
+        const favDiv = document.createElement("div");
+        favDiv.className = "favourite-item";
+        favDiv.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" width="80" />
+          <div style="margin-left: 16px;">
+            <h4>${item.brand}</h4>
+            <p>${item.name}</p>
+            <p>Size: ${item.size}</p>
+            <button class="btn-remove remove-fav-btn" data-index="${index}">Remove</button>
+          </div>
+        `;
+        favList.appendChild(favDiv);
+      });
+    }
+  
+    document.querySelectorAll(".summary-row span")[1].textContent = `$${subtotal.toFixed(2)} AUD`;
+    document.getElementById("total-num").textContent = `$${subtotal.toFixed(2)} AUD`;
+  
+    // --- 删除购物车商品 ---
     document.querySelectorAll(".remove-btn").forEach(button => {
       button.addEventListener("click", event => {
         const index = parseInt(event.target.getAttribute("data-index"));
@@ -78,7 +78,7 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     });
   
-    // --- 4. 绑定 Remove 按钮（收藏） ---
+    // --- 删除收藏商品 ---
     document.querySelectorAll(".remove-fav-btn").forEach(button => {
       button.addEventListener("click", event => {
         const index = parseInt(event.target.getAttribute("data-index"));
@@ -88,7 +88,7 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     });
   
-    // --- 5. Promo Code Toggle ---
+    // --- Promo Code 展开隐藏 ---
     const promoToggleBtn = document.getElementById("promo");
     const promoInputContainer = document.getElementById("promo-input");
   

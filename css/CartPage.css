@@ -201,7 +201,7 @@
   }
 
 
-    .btn-remove {
+ .btn-remove {
         background-color: #020202;
         color: white;
         padding: 12px 24px;
@@ -216,7 +216,7 @@
         display: block;
         text-align: center;
       }
-  }
+  
   /* ==== Quantity Controls ==== */
 .quantity-control {
     display: flex;
