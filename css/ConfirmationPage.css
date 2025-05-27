@@ -1,0 +1,151 @@
+/* ---- reset margin ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Helvetica Neue', sans-serif;
+    line-height: 1.4;
+  }
+  
+  /* ---- navagation bar ---- */
+  .navbar {
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+  }
+  
+  .logo {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+  }
+  
+  .icon, .nav-right svg, .nav-left svg {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
+    fill: white;
+    cursor: pointer;
+  }
+
+  .nav-right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* === Confirmation Container === */
+.confirmation-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  }
+  
+  .confirmation-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  
+  .confirmation-subtext {
+    color: #666;
+    margin-bottom: 24px;
+  }
+  
+  /* === Order Details === */
+  .confirmation-section {
+    margin-bottom: 24px;
+  }
+  
+  .confirmation-section h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  .confirmation-section p {
+    margin: 4px 0;
+    color: #444;
+  }
+  
+  /* === Product List === */
+  .product-summary {
+    border-top: 1px solid #ddd;
+    padding-top: 16px;
+  }
+  
+  .checkout-product {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .checkout-product img {
+    width: 100px;
+    height: auto;
+    border-radius: 6px;
+  }
+  
+  .checkout-product div {
+    flex: 1;
+  }
+  
+  .checkout-product p {
+    margin: 4px 0;
+  }
+  
+  /* === Button === */
+  .back-home-btn {
+    display: inline-block;
+    background-color: #000;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 32px;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  .back-home-btn:hover {
+    background-color: #333;
+  }
+  
+  /* === Responsive === */
+  @media (max-width: 600px) {
+    .confirmation-container {
+      padding: 20px;
+    }
+  
+    .checkout-product {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .checkout-product img {
+      width: 80%;
+    }
+  
+    .back-home-btn {
+      width: 100%;
+    }
+
+
+#order-number, #delivery-date {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 8px;
+  }

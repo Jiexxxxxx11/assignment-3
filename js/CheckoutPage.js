@@ -1,78 +1,71 @@
 window.addEventListener("DOMContentLoaded", () => {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const summaryListContainer = document.getElementById("checkout-summary-products");
-    const subtotalSpan = document.querySelector(".summary-row span:last-child");
-    const totalNum = document.getElementById("total-num");
-   
-    document.addEventListener("DOMContentLoaded", () => {
-        const checkoutBtn = document.querySelector(".go-checkout-btn");
-      
-        if (checkoutBtn) {
-          checkoutBtn.addEventListener("click", () => {
-            window.location.href = "../html/CheckoutPage.html";
-          });
-        }
-      });
-    
-    document.querySelectorAll(".pay-icon").forEach(button => {
-        button.addEventListener("click", () => {
-          document.querySelectorAll(".pay-icon").forEach(btn => btn.classList.remove("selected"));
-          button.classList.add("selected");
-        });
-      });
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const summaryListContainer = document.getElementById("checkout-summary-products");
+  const subtotalSpan = document.querySelector(".summary-row span:last-child");
+  const totalNum = document.getElementById("total-num");
+  const form = document.getElementById("checkout-info");
+  const submitBtn = document.querySelector(".btn-checkout");
 
-    document.querySelector(".btn-checkout").addEventListener("click", (e) => {
-        const form = document.getElementById("checkout-info");
-        if (!form.checkValidity()) {
-          e.preventDefault(); // 阻止默认提交行为
-          form.reportValidity(); // 显示浏览器内置验证提示
-        } else {
-          // 表单通过验证，执行下一步（比如提交或跳转）
-          alert("Form is valid! Proceeding to payment...");
-        }
-      });
-  
-    let subtotal = 0;
-  
-    // 清空旧内容
-    summaryListContainer.innerHTML = "";
-  
-    cart.forEach(item => {
-      subtotal += item.price;
-  
-      const itemDiv = document.createElement("div");
-      itemDiv.className = "checkout-product";
-      itemDiv.innerHTML = `
-        <img src="${item.image}" alt="${item.name}" />
-        <div>
-          <p><strong>${item.brand}</strong></p>
-          <p>${item.name}</p>
-          <p>Size: ${item.size}</p>
-          <p>Colour: Black</p>
-          <p>QTY: 1</p>
-          <p>$${item.price.toFixed(2)}</p>
-        </div>
-      `;
-  
-      summaryListContainer.appendChild(itemDiv);
+  // 渲染商品信息
+  let subtotal = 0;
+  summaryListContainer.innerHTML = "";
+  cart.forEach(item => {
+    subtotal += item.price;
+    const itemDiv = document.createElement("div");
+    itemDiv.className = "checkout-product";
+    itemDiv.innerHTML = `
+      <img src="${item.image}" alt="${item.name}" />
+      <div>
+        <p><strong>${item.brand}</strong></p>
+        <p>${item.name}</p>
+        <p>Size: ${item.size}</p>
+        <p>Colour: Black</p>
+        <p>QTY: 1</p>
+        <p>$${item.price.toFixed(2)}</p>
+      </div>
+    `;
+    summaryListContainer.appendChild(itemDiv);
+  });
+  subtotalSpan.textContent = `$${subtotal.toFixed(2)} AUD`;
+  totalNum.textContent = `$${subtotal.toFixed(2)} AUD`;
+
+  // 支付方式按钮选中样式切换
+  document.querySelectorAll(".pay-icon").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".pay-icon").forEach(btn => btn.classList.remove("selected"));
+      button.classList.add("selected");
     });
-  
-    subtotalSpan.textContent = `$${subtotal.toFixed(2)} AUD`;
-    totalNum.textContent = `$${subtotal.toFixed(2)} AUD`;
+  });
 
-    let selectedPaymentMethod = "";
+  // 提交表单并跳转到确认页
+  submitBtn.addEventListener("click", (e) => {
+    e.preventDefault();
 
-document.querySelectorAll(".pay-icon").forEach(button => {
-  button.addEventListener("click", () => {
-    // 清除之前的选中状态
-    document.querySelectorAll(".pay-icon").forEach(btn => btn.classList.remove("selected"));
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
-    // 设置当前为选中状态
-    button.classList.add("selected");
+    // 获取用户输入信息
+    const selectedPayment = document.querySelector(".pay-icon.selected");
+    const userInfo = {
+      firstName: document.getElementById("first-name").value,
+      lastName: document.getElementById("last-name").value,
+      address: document.getElementById("address").value,
+      suburb: document.getElementById("suburb").value,
+      city: document.getElementById("city").value,
+      state: document.getElementById("state").value,
+      postcode: document.getElementById("postcode").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      paymentMethod: selectedPayment ? selectedPayment.textContent.trim() : "Not selected",
+    };
 
-    // 保存选中的付款方式（按钮的文本内容）
-    selectedPaymentMethod = button.textContent.trim();
-    localStorage.setItem("paymentMethod", selectedPaymentMethod); // 存储到 localStorage
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    localStorage.setItem("paymentMethod", userInfo.paymentMethod);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // 跳转页面
+    window.location.href = "../html/ConfirmationPage.html";
   });
 });
-  });
