@@ -79,35 +79,41 @@
     font-weight: bold;
     margin-bottom: 8px;
   }
-  
-  .checkout-subtitle {
-    font-size: 16px;
-    margin-bottom: 20px;
+
+  .delivery-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 20px 0;
   }
   
-  .address-box {
-    border: 1px solid #000;
-    border-radius: 6px;
-    padding: 12px;
-    margin-bottom: 24px;
-    position: relative;
+  .input-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
   }
   
-  .address-content {
+  .input-group {
+    flex: 1;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .delivery-form label {
+    font-weight: bold;
     font-size: 14px;
-    line-height: 1.6;
+    margin-bottom: 4px;
   }
   
-  .edit-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
+  .delivery-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
   }
   
+ 
   .payment-methods {
     display: flex;
     gap: 10px;
@@ -397,4 +403,11 @@
     height: auto;
     border: 1px solid #ccc;
   }
+
+  .btn-apply :hover,
+  .btn-checkout:hover {
+  background-color: #444; /* 深灰色 */
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
   

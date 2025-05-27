@@ -60,18 +60,56 @@
         <!-- Left Column for Address & Payment Info -->
         <div class="cart-left checkout-left">
           <h1>BAG</h1>
-<p class="checkout-subtitle"><span id="item-count">0</span> item | <span id="total-price">$0.00</span></p>
 
-<h3>Delivery Options ✔</h3>
-<div class="address-box">
-  <div class="address-content" id="address-content">
-    <!-- JS will populate this -->
+<h3>Delivery Options</h3>
+
+<div class="delivery-form">
+  <div class="input-row">
+    <div class="input-group">
+      <label for="first-name">First Name</label>
+      <input type="text" id="first-name" placeholder="John" required />
+    </div>
+    <div class="input-group">
+      <label for="last-name">Last Name</label>
+      <input type="text" id="last-name" placeholder="Doe" required />
+    </div>
   </div>
-  <button class="edit-btn" id="edit-address">
-    ✏️
-  </button>
-</div>
 
+  <label for="address">Street Address</label>
+  <input type="text" id="address" placeholder="123 Example Street" required />
+
+  <div class="input-row">
+    <div class="input-group">
+      <label for="suburb">Suburb</label>
+      <input type="text" id="suburb" placeholder="Southbank" required />
+    </div>
+    <div class="input-group">
+      <label for="city">City</label>
+      <input type="text" id="city" placeholder="Melbourne" required />
+    </div>
+  </div>
+
+  <div class="input-row">
+    <div class="input-group">
+      <label for="state">State</label>
+      <input type="text" id="state" placeholder="VIC" required />
+    </div>
+    <div class="input-group">
+      <label for="country">Country</label>
+      <input type="text" id="country" placeholder="Australia" required />
+    </div>
+    <div class="input-group">
+      <label for="postcode">Postcode</label>
+      <input type="text" id="postcode" placeholder="3000" required />
+    </div>
+  </div>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" placeholder="your@email.com" required />
+
+  <label for="phone">Phone Number</label>
+  <input type="tel" id="phone" placeholder="04xxxxxxxx" required />
+</div>
 <h3>Payment</h3>
 <p>Select payment method</p>
 <div class="payment-methods">

@@ -313,8 +313,13 @@
     margin: 20px 0;
   }
   
-  
-  
+.go-checkout-btn:hover,
+.btn-checkout:hover {
+  background-color: #a7a6a6; /* 深灰色 */
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
   .cart-left, .cart-summary {
     display: flex;
     flex-direction: column;
