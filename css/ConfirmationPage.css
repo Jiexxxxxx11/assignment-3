@@ -1,4 +1,4 @@
-/* ---- reset margin ---- */
+/* ---- Reset Margin ---- */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@
     line-height: 1.4;
   }
   
-  /* ---- navagation bar ---- */
+  /* ---- Navigation Bar ---- */
   .navbar {
     background-color: #007bff;
     color: white;
@@ -34,93 +34,114 @@
     fill: white;
     cursor: pointer;
   }
-
-  .nav-right{
+  
+  .nav-right {
     display: flex;
     align-items: center;
     gap: 20px;
   }
-
+  
   /* === Confirmation Container === */
-.confirmation-container {
+  .confirmation-container {
     max-width: 800px;
     margin: 40px auto;
     background: white;
     padding: 32px;
     border-radius: 12px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
   
-  .confirmation-title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 12px;
-  }
-  
-  .confirmation-subtext {
-    color: #666;
+  .confirmation-container h1 {
+    font-size: 32px;
+    font-weight: 700;
     margin-bottom: 24px;
-  }
-  
-  /* === Order Details === */
-  .confirmation-section {
-    margin-bottom: 24px;
-  }
-  
-  .confirmation-section h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #333;
-  }
-  
-  .confirmation-section p {
-    margin: 4px 0;
-    color: #444;
   }
   
   /* === Product List === */
-  .product-summary {
-    border-top: 1px solid #ddd;
-    padding-top: 16px;
-  }
+  #order-product-list {
+    margin: 35px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+    border: 1px solid #000;     /* ✅ 黑色边框 */
+    padding: 40px;
+    border-radius: 8px;         /* ✅ 可选：圆角美观 */
+    background-color: #f9f9f9c7;  /* ✅ 可选：轻微背景区分 */
+    margin-bottom: 48px;
+}
   
-  .checkout-product {
+  .confirmation-product {
     display: flex;
     gap: 16px;
     margin-bottom: 16px;
+    text-align: left;
   }
   
-  .checkout-product img {
+  .confirmation-product img {
     width: 100px;
     height: auto;
+    object-fit: contain;
     border-radius: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
   }
   
-  .checkout-product div {
+  .confirmation-product .product-details {
     flex: 1;
   }
   
-  .checkout-product p {
+  .confirmation-product p {
     margin: 4px 0;
+    font-size: 14px;
+    color: #333;
   }
   
-  /* === Button === */
-  .back-home-btn {
-    display: inline-block;
-    background-color: #000;
-    color: white;
+  /* === Order Info === */
+  #order-number,
+  #delivery-date {
+    font-size: 14px;
+    margin-top: 8px;
+    text-align: center;
+  }
+  
+  /* === Buttons === */
+  .button-group {
+    margin-top: 32px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
     padding: 12px 24px;
     border-radius: 24px;
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
-    margin-top: 32px;
-    text-align: center;
+    display: inline-block;
     transition: background-color 0.3s;
+    text-align: center;
   }
   
-  .back-home-btn:hover {
+  .btn-blue {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn-blue:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-continue-shopping {
+    background-color: #000;
+    color: white;
+  }
+  
+  .btn-black:hover {
     background-color: #333;
   }
   
@@ -130,22 +151,16 @@
       padding: 20px;
     }
   
-    .checkout-product {
+    .confirmation-product {
       flex-direction: column;
       align-items: center;
     }
   
-    .checkout-product img {
+    .confirmation-product img {
       width: 80%;
     }
   
-    .back-home-btn {
+    .btn {
       width: 100%;
     }
-
-
-#order-number, #delivery-date {
-    text-align: center;
-    font-size: 14px;
-    margin-top: 8px;
   }

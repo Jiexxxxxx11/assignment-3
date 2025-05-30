@@ -119,18 +119,19 @@
   <label for="phone">Phone Number</label>
   <input type="tel" id="phone" required />
 </div>
+</form>
 
 <h3>Payment</h3>
 <p>Select payment method</p>
 <div class="payment-methods">
-  <button class="pay-icon"> Pay</button>
-  <button class="pay-icon">
+  <button class="pay-icon" type="button"> Pay</button>
+  <button class="pay-icon" type="button">
     <svg class="icon-svg" width="24" height="24">
       <use href="#icon-payment-paypal"></use>
     </svg>
     PayPal
   </button>
-  <button class="pay-icon">Afterpay</button>
+  <button class="pay-icon" type="button">Afterpay</button>
 </div>
 
 <p>Add Card</p>
@@ -147,7 +148,7 @@
           <h2>Summary</h2>
           <!-- promo enter-->
           <div class="promo-section">
-              <button id="promo" class="btn-promo"> Promo Code  ▿</button>
+              <button id="promo" class="btn-promo"> Promo Code </button>
               <div id="promo-input" class="hidden">
                   <input type="text" id="promo-code" placeholder="Enter your promo code" />
                   <button id="apply-promo" class="btn-apply">Apply</button>
@@ -176,7 +177,6 @@
           <div id="checkout-summary-products"></div>
 
   <button class="btn-checkout">Submit Payment</button>
-</form>
 
   <svg style="display: none;">
     <symbol id="icon-payment-paypal" viewBox="0 0 384 512">

@@ -4,7 +4,13 @@ window.addEventListener("DOMContentLoaded", () => {
     const deliveryDateDisplay = document.getElementById("delivery-date"); // 修正 ID
   
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const paymentMethod = localStorage.getItem("paymentMethod") || "Not specified";
+    let paymentMethod = localStorage.getItem("paymentMethod");
+
+      // ✅ 如果用户未选择支付方式，则默认使用 Credit/Debit Card
+    if (!paymentMethod || paymentMethod === "Not selected" || paymentMethod === "Not specified") {
+      paymentMethod = "Credit Card";
+    }
+
   
     let subtotal = 0;
   
@@ -47,10 +53,30 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     };
   
-    orderNumberDisplay.textContent = generateOrderId();
-    deliveryDateDisplay.textContent = getDeliveryDate();
-  
-    const paymentNote = document.createElement("p");
-    paymentNote.innerHTML = `Payment Method: <strong>${paymentMethod}</strong><br>Total: <strong>$${subtotal.toFixed(2)} AUD</strong>`;
-    orderListContainer.appendChild(paymentNote);
+    // 显示订单号
+orderNumberDisplay.textContent = generateOrderId();
+deliveryDateDisplay.textContent = getDeliveryDate();
+
+// ✅ 显示付款方式和总价
+const finalPaymentMethod = paymentMethod === "Not specified" ? "Credit/Debit Card" : paymentMethod;
+const paymentNote = document.createElement("p");
+paymentNote.innerHTML = `Payment Method: <strong>${finalPaymentMethod}</strong><br>Total: <strong>$${subtotal.toFixed(2)} AUD</strong>`;
+orderListContainer.appendChild(paymentNote);
+
+// ✅ 点击 “Continue Shopping” 时，清除非收藏商品
+const continueBtn = document.querySelector(".btn.btn-continue-shopping");
+if (continueBtn) {
+  continueBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // 保留 favourites，清除其它
+    const favourites = localStorage.getItem("favourites");
+    localStorage.clear();
+    if (favourites) {
+      localStorage.setItem("favourites", favourites);
+    }
+
+    // 跳转页面
+    window.location.href = "../html/ProductList.html";
   });
+}});
