@@ -36,6 +36,14 @@
     cursor: pointer;
   }
 
+  .search-bar {
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+  }
+
   .nav-right{
     display: flex;
     align-items: center;
