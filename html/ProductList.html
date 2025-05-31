@@ -66,67 +66,27 @@
     </nav>
 
     <!-- Product Grid -->
-    <section class="product-grid">
-      <a href="ProductPage.html?id=bape01" class="product-card">
-        <img src="../images/product-list/bape.jpg.webp" alt="BAPE" />
-        <div class="product-info">
-          <h3>A BATHING APE</h3>
-          <p>College Tee</p>
-          <span class="price">$199.95 AUD</span>
-        </div>
-      </div>
-
-      <a href="ProductPage.html?id=stussy01" class="product-card">
-        <img
-          src="../images/product-list/stussyhat.jpg.webp"
-          alt="Stussy Hat"
-        />
-        <div class="product-info">
-          <h3>STUSSY</h3>
-          <p>Basic 9TWENTY Cap</p>
-          <span class="price sale">$68.95 AUD</span>
-        </div>
-      </div>
-
-      <a href="ProductPage.html?id=palace01" class="product-card">
-        <img src="../images/product-list/palace.webp" alt="Palace" />
-        <div class="product-info">
-          <h3>Palace</h3>
-          <p>Bribed Tri-Ferg Hood</p>
-          <span class="price">$339.95 AUD</span>
-        </div>
-      </div>
-
-      <a href="ProductPage.html?id=carhartt01" class="product-card">
-        <img src="../images/product-list/carhartt.jpg" alt="Carhartt" />
-        <div class="product-info">
-          <h3>Carhartt WIP</h3>
-          <p>Detroit Jacket</p>
-          <span class="price">$449.95 AUD</span>
-        </div>
-      </div>
-
-      <a href="ProductPage.html?id=jordan01" class="product-card">
-        <img src="../images/product-list/jordan.jpg" alt="Jordan" />
-        <div class="product-info">
-          <h3>Air Jordan</h3>
-          <p>Air Jordan 11 Retro Low</p>
-          <span class="price">$260.00 AUD</span>
-        </div>
-      </div>
-
-      <a href="ProductPage.html?id=stoneisland01" class="product-card">
-        <img src="../images/product-list/stoneisland.webp" alt="Stoneisland" />
-        <div class="product-info">
-          <h3>Stoneisland</h3>
-          <p>Overshirt</p>
-          <span class="price">$869.95 AUD</span>
-        </div>
-      </div>
-    </section>
+    <section class="product-grid" id="productGrid"></section>
 
     <div style="text-align: center; margin: 40px 0">
       <button id="load-more" class="btn">LOAD MORE</button>
     </div>
+
+    <!-- category menu -->
+    <div class="side-menu" id="sideMenu">
+      <ul class="category-list">
+        <li><a href="ProductList.html"> Shoes</a></li>
+        <li><a> Tops</a></li>
+        <li><a> Bottoms</a></li>
+        <li><a> Accessories</a></li>
+        <li><a> Toys</a></li>
+      </ul>
+    </div>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="../js/menu.js"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/Productlist.js"></script>
   </body>
 </html>
