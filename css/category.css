@@ -1,0 +1,258 @@
+/* ---- reset margin ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  line-height: 1.4;
+}
+
+.btn {
+  background-color: black;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #333;
+}
+
+/* ---- navagation bar ---- */
+.navbar {
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+}
+
+.icon, .nav-right svg, .nav-left svg {
+  width: 24px;
+  height: 24px;
+  filter: invert(100%);
+  fill: white;
+  cursor: pointer;
+}
+
+.nav-right{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ---- category ---- */
+.category {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: #111;
+  padding: 16px 20px;
+}
+
+.category ul{
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;/* for mobile */
+}
+
+.category li{
+  font-size: 16px;
+  font-weight: 600;
+  color: #ccc;
+  cursor: pointer;
+  padding-bottom: 6px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.category li:hover{
+  color: #fff;
+  border-bottom: 2px solid #007bff;
+}
+
+.category li.active{
+  color: #fff;
+  border-bottom: 2px solid #007bff;
+}
+
+/* ----product grid area ---- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 20px;
+  max-width: 950px; /* max width for desktop */
+  margin:auto;
+  
+}
+
+/* ---- product grids ---- */
+.product-card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.side-menu {
+  padding: 90px;
+  position: fixed;
+  top: -60vh;
+  left: 0;
+  width: 100%;
+  transition: top 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  z-index: 999;
+}
+
+.side-menu.active {
+  top: 0;
+  opacity: 1;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+}
+
+.category-list li {
+  margin-bottom: 20px;
+}
+
+.category-list li a {
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+  color: #f0efef;
+  display: flex;
+  transition: color 0.2s ease;
+}
+
+.category-list li a:hover {
+  color: #007bff;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.729);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (hover: hover) {
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ---- images setting ---- */
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+}
+
+/* ---- product text setting ---- */
+.product-info {
+  padding: 16px;
+  text-align: center;
+}
+
+/* ---- product brand ---- */
+.product-info h3 {
+  font-size: 14px;
+  color: rgba(182, 192, 201, 0.85);
+  margin-bottom: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ---- product name ---- */
+.product-info p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* ---- price ---- */
+.price {
+  font-size: 18px;
+  color: #007bff;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.sale-price {
+  color: #dc3545 !important;
+}
+
+
+/* ---- mobile ---- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    padding: 10px 16px;
+  }
+  
+  .logo {
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .nav-right{
+      gap: 10px;
+  }
+  
+  .category {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .category ul {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .category li {
+    font-size: 12px;
+    padding-bottom: 4px;
+  }
+}

@@ -7,6 +7,7 @@ const products = {
     sale: true,
     category: "accessories",
     gender: "man",
+    sale: "sale",
     images: [
       "../images/product-list/stussyhat.jpg.webp",
       "../images/product-list/stussyhat2.webp",
@@ -30,6 +31,7 @@ const products = {
     sale: false,
     category: "tops",
     gender: ["man", "woman"],
+    age:"kids",
     images: [
       "../images/product-list/bape.jpg.webp",
       "../images/product-list/bape2.webp",
@@ -112,6 +114,7 @@ const products = {
     sale: false,
     category: "tops",
     gender: "man",
+    brand:"stoneisland",
     images: [
       "../images/product-list/stoneisland.webp",
       "../images/product-list/stoneisland2.webp",
