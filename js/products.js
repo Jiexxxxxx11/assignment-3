@@ -5,6 +5,8 @@ const products = {
     color: "Black",
     price: 78.95,
     sale: true,
+    category: "accessories",
+    gender: "man",
     images: [
       "../images/product-list/stussyhat.jpg.webp",
       "../images/product-list/stussyhat2.webp",
@@ -26,6 +28,8 @@ const products = {
     color: "White",
     price: 199.95,
     sale: false,
+    category: "tops",
+    gender: ["man", "woman"],
     images: [
       "../images/product-list/bape.jpg.webp",
       "../images/product-list/bape2.webp",
@@ -44,6 +48,8 @@ const products = {
     color: "Navy",
     price: 339.95,
     sale: false,
+    category: "tops",
+    gender: ["man","woman"],
     images: [
       "../images/product-list/palace.webp",
       "../images/product-list/palace2.webp",
@@ -62,6 +68,8 @@ const products = {
     color: "Brown",
     price: 449.95,
     sale: false,
+    category: "tops",
+    gender: "man",
     images: [
       "../images/product-list/carhartt.jpg",
       "../images/product-list/carhartt2.webp",
@@ -80,6 +88,8 @@ const products = {
     color: "White/Black",
     price: 260.00,
     sale: false,
+    category: "shoes",
+    gender: "man",
     images: [
       "../images/product-list/jordan.jpg",
       "../images/product-list/jordan2.jpg",
@@ -100,6 +110,8 @@ const products = {
     color: "Olive",
     price: 869.95,
     sale: false,
+    category: "tops",
+    gender: "man",
     images: [
       "../images/product-list/stoneisland.webp",
       "../images/product-list/stoneisland2.webp",

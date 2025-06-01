@@ -220,10 +220,9 @@
     margin-bottom: 16px;
   }
 
-  .price.sale {
-    color: #dc3545;
+  .sale-price {
+    color: #dc3545 !important;
   }
-
 
 
   /* ---- mobile ---- */
