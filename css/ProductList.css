@@ -276,17 +276,61 @@
     }
     
     .category {
-      flex-direction: column;
-      align-items: center;
+      padding: 10px 16px;
+      overflow-x: hidden;
+    }
+
+    .category ul::-webkit-scrollbar {
+      display: none;
     }
 
     .category ul {
-      justify-content: center;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
       gap: 16px;
+      padding-bottom: 10px;
+      scrollbar-width: none;;
     }
 
     .category li {
-      font-size: 12px;
+      font-size: 14px;      
       padding-bottom: 4px;
+      white-space: nowrap;    /* 防止内容换行 */
     }
+    
+    .product-grid {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      padding: 16px;
+      gap: 16px;
+      max-width: 100%; 
+    }
+
+    .product-info h3 {
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+    
+    .product-info p {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    
+    .price {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    /* 按钮缩小 */
+    .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+/* Load more 按钮居中 */
+  #load-more {
+  width: 80%;
+  max-width: 300px;
+  margin: auto;
+}
   }
