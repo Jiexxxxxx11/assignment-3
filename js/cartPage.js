@@ -24,6 +24,7 @@ window.addEventListener("DOMContentLoaded", () => {
       cart.forEach((item, index) => {
         const itemDiv = document.createElement("div");
         itemDiv.className = "cart-item";
+      
         itemDiv.innerHTML = `
           <img src="${item.image}" alt="${item.name}" />
           <div class="item-details">
@@ -31,9 +32,10 @@ window.addEventListener("DOMContentLoaded", () => {
             <p>${item.brand}</p>
             <p>${item.name}</p>
             <p>Size: ${item.size}</p>
-            <button class="btn-checkout remove-btn" data-index="${index}">Remove</button>
+            <button class="btn remove-btn" data-index="${index}">Remove</button>
           </div>
         `;
+      
         itemList.appendChild(itemDiv);
         subtotal += item.price;
       });
@@ -58,7 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
             <h4>${item.brand}</h4>
             <p>${item.name}</p>
             <p>Size: ${item.size}</p>
-            <button class="btn-remove remove-fav-btn" data-index="${index}">Remove</button>
+            <button class="btn remove-fav-btn" data-index="${index}">Remove</button>
           </div>
         `;
         favList.appendChild(favDiv);
@@ -68,7 +70,7 @@ window.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".summary-row span")[1].textContent = `$${subtotal.toFixed(2)} AUD`;
     document.getElementById("total-num").textContent = `$${subtotal.toFixed(2)} AUD`;
   
-    // --- 删除购物车商品 ---
+    // --- 删除购物车商品 ---  //
     document.querySelectorAll(".remove-btn").forEach(button => {
       button.addEventListener("click", event => {
         const index = parseInt(event.target.getAttribute("data-index"));

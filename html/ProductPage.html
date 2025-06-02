@@ -87,7 +87,40 @@
 
         <button class="btn-add">ADD TO BAG</button>
         <button class="btn-fav" id="fav-btn">
-          <span id="fav-icon">♡</span>
+          <span class="fav-icon">
+            <!-- 空心心 -->
+            <svg
+              id="icon-empty"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="black"
+              width="20"
+              height="20"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4.318 6.318C3.412 7.224 3 8.388 3 9.586c0 3.75 4.174 6.741 8.276 10.305.42.376.756.671 1.04.894.284-.223.62-.518 1.04-.894 4.102-3.564 8.276-6.555 8.276-10.305 0-1.198-.412-2.362-1.318-3.268a4.657 4.657 0 0 0-6.586 0L12 7.414l-1.688-1.688a4.657 4.657 0 0 0-6.586 0z"
+              />
+            </svg>
+
+            <!-- 实心心 -->
+            <svg
+              id="icon-filled"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="red"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              style="display: none"
+            >
+              <path
+                d="M12.001 20.729l-.001-.001-.685-.611c-3.717-3.303-6.196-5.507-7.482-7.429C2.576 10.19 2 8.893 2 7.502 2 5.015 4.015 3 6.5 3c1.54 0 3.04.81 3.873 2.09h1.254C14.46 3.81 15.96 3 17.5 3 19.985 3 22 5.015 22 7.502c0 1.391-.576 2.688-1.833 4.186-1.286 1.922-3.765 4.126-7.482 7.429l-.684.612z"
+              />
+            </svg>
+          </span>
           <span class="fav">Favourite</span>
         </button>
 
