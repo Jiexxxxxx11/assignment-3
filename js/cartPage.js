@@ -90,18 +90,6 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     });
   
-    // --- Promo Code 展开隐藏 ---
-    const promoToggleBtn = document.getElementById("promo");
-    const promoInputContainer = document.getElementById("promo-input");
-  
-    if (promoToggleBtn && promoInputContainer) {
-      promoToggleBtn.addEventListener("click", () => {
-        promoInputContainer.classList.toggle("hidden");
-      });
-    } else {
-      console.warn("Promo Code button or input container not found.");
-    }
-
     // 跳转到 Checkout 页面
     const checkoutBtn = document.querySelector(".go-checkout-btn");
     if (checkoutBtn) {
