@@ -201,24 +201,28 @@
   }
 
 
-  .btn-checkout,
   .go-checkout-btn {
     background-color: #020202;
     color: white;
-    padding: 12px 34px;
+    padding: 14px 28px;
     border-radius: 24px;
     font-weight: bold;
     font-size: 16px;
     border: none;
     cursor: pointer;
   
-    min-width: 200px;
-    margin: 20px auto 0;
+    margin: 40px auto 0; /* 与 Summary 内容留间距，并居中 */
     display: block;
+    width: 100%;
+    max-width: 300px; /* 限制按钮宽度 */
     text-align: center;
+    transition: background-color 0.3s ease;
   }
   
-  
+  .go-checkout-btn:hover {
+    background-color: #444;
+    color: #fff;
+  }
   
   /* ---- Summary ---- */
   .cart-summary {
@@ -313,12 +317,7 @@
     margin: 20px 0;
   }
   
-.go-checkout-btn:hover,
-.btn-checkout:hover {
-  background-color: #a7a6a6; /* 深灰色 */
-  color: #fff;
-  transition: background-color 0.3s ease;
-}
+
 
   .cart-left, .cart-summary {
     display: flex;
@@ -326,4 +325,46 @@
   }
   .hidden {
     display: none !important;
+  }
+
+  @media (max-width: 768px) {
+    .cart-content {
+      display: flex;
+      flex-direction: column;
+    }
+  
+  
+    .cart-summary {
+      width: 100%;
+      order: 2;
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+    }
+  
+    .input-row {
+      flex-direction: column;
+    }
+  
+    .input-group input,
+    .input-group select,
+    .card-input,
+    #promo-code {
+      width: 100%;
+    }
+  
+  
+    .summary-row {
+      justify-content: space-between;
+    }
+  
+    .promo-section input {
+      margin-bottom: 10px;
+    }
+  
+    .btn-apply:hover {
+      background-color: #444;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
   }
