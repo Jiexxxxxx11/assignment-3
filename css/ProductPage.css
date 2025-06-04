@@ -158,8 +158,10 @@ body {
   border-color: red;
 }
 
-#fav-icon {
+.fav-icon {
   font-size: 20px;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
 }
 
 .size-options {
