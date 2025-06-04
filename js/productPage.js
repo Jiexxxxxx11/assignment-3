@@ -1,33 +1,30 @@
 let selectedSize = null;
 let product = null;
 
-// 页面加载完成后执行主逻辑
 window.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
-  const id = params.get("id"); // 从 URL 中获取商品 ID
+  const id = params.get("id");
 
-  // 如果没有找到 ID 或对应商品，显示错误提示
   if (!id || !products[id]) {
     document.body.innerHTML = "<h2>Product not found</h2>";
     return;
   }
 
-  product = products[id]; // 获取当前商品信息
+  product = products[id];
 
-  // 设置商品文本信息
+  // 文本信息填充
   document.querySelector(".brand").textContent = product.brand;
   document.querySelector(".name").textContent = product.name;
   document.querySelector(".price").textContent = `$${product.price.toFixed(2)} AUD`;
   document.querySelector(".color").textContent = product.color;
   document.querySelector(".description").textContent = product.description;
-  document.querySelector(".delivery-text").textContent = product.delivery;
   document.querySelector(".details-text").textContent = product.details;
+  const delivery = document.querySelector(".delivery-text");
+  if (delivery) delivery.textContent = "Free delivery and returns.";
 
-  // 渲染商品图片（缩略图点击切换主图）
+  // 图片渲染
   const thumbnailContainer = document.querySelector(".thumbnail-images");
   const mainImage = document.querySelector(".main-image");
-  thumbnailContainer.innerHTML = "";
-
   product.images.forEach((src, index) => {
     const img = document.createElement("img");
     img.src = src;
@@ -35,27 +32,12 @@ window.addEventListener("DOMContentLoaded", () => {
     img.addEventListener("click", () => {
       mainImage.src = src;
     });
-    if (index === 0) mainImage.src = src;
     thumbnailContainer.appendChild(img);
+    if (index === 0) mainImage.src = src;
   });
 
-  // 渲染评论
-  const reviewSection = document.querySelector(".review-section");
-  reviewSection.innerHTML = "";
-  if (product.reviews.length === 0) {
-    reviewSection.textContent = "No reviews yet.";
-  } else {
-    product.reviews.forEach(r => {
-      const div = document.createElement("div");
-      div.className = "review";
-      div.innerHTML = `<strong>${r.user}</strong> (${r.rating}/5): ${r.comment}`;
-      reviewSection.appendChild(div);
-    });
-  }
-
-  // ====== 尺寸选择逻辑 ======
+  // 尺寸选择
   const sizeContainer = document.querySelector(".size-options");
-  sizeContainer.innerHTML = "";
   product.sizes.forEach(size => {
     const btn = document.createElement("button");
     btn.className = "size-btn";
@@ -73,48 +55,61 @@ window.addEventListener("DOMContentLoaded", () => {
     sizeContainer.appendChild(btn);
   });
 
-  // ====== 收藏功能（SVG 图标切换）======
+  // 评论
+  const reviewSection = document.querySelector(".review-section");
+  reviewSection.innerHTML = "";
+  if (product.reviews.length === 0) {
+    reviewSection.textContent = "No reviews yet.";
+  } else {
+    product.reviews.forEach(r => {
+      const div = document.createElement("div");
+      div.className = "review";
+      div.innerHTML = `<strong>${r.user}</strong> (${r.rating}/5): ${r.comment}`;
+      reviewSection.appendChild(div);
+    });
+  }
+
+  // 收藏功能
   const favBtn = document.getElementById("fav-btn");
   const iconEmpty = document.getElementById("icon-empty");
   const iconFilled = document.getElementById("icon-filled");
 
-  favBtn.addEventListener("click", () => {
-    if (!selectedSize) {
-      alert("Please select a size before adding to favourites.");
-      return;
-    }
+  if (favBtn && iconEmpty && iconFilled) {
+    favBtn.addEventListener("click", () => {
+      if (!selectedSize) {
+        alert("Please select a size before adding to favourites.");
+        return;
+      }
 
-    favBtn.classList.toggle("active");
-    const isActive = favBtn.classList.contains("active");
+      favBtn.classList.toggle("active");
+      const isActive = favBtn.classList.contains("active");
 
-    // 切换图标显示状态
-    iconEmpty.style.display = isActive ? "none" : "inline-block";
-    iconFilled.style.display = isActive ? "inline-block" : "none";
+      iconEmpty.style.display = isActive ? "none" : "inline-block";
+      iconFilled.style.display = isActive ? "inline-block" : "none";
 
-    const sizeText = selectedSize.textContent;
-    const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
+      const sizeText = selectedSize.textContent;
+      const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
 
-    const exists = favourites.some(fav => fav.id === id && fav.size === sizeText);
+      if (isActive && !favourites.some(fav => fav.id === id && fav.size === sizeText)) {
+        favourites.push({
+          id,
+          name: product.name,
+          brand: product.brand,
+          size: sizeText,
+          price: product.price,
+          image: product.images[0]
+        });
+        localStorage.setItem("favourites", JSON.stringify(favourites));
+      }
 
-    if (isActive && !exists) {
-      favourites.push({
-        id,
-        name: product.name,
-        brand: product.brand,
-        size: sizeText,
-        price: product.price,
-        image: product.images[0]
-      });
-      localStorage.setItem("favourites", JSON.stringify(favourites));
-    }
+      if (!isActive) {
+        const updated = favourites.filter(fav => !(fav.id === id && fav.size === sizeText));
+        localStorage.setItem("favourites", JSON.stringify(updated));
+      }
+    });
+  }
 
-    if (!isActive) {
-      const updated = favourites.filter(fav => !(fav.id === id && fav.size === sizeText));
-      localStorage.setItem("favourites", JSON.stringify(updated));
-    }
-  });
-
-  // ====== 添加到购物车功能 ======
+  // 加入购物车
   const addBtn = document.querySelector(".btn-add");
   addBtn.addEventListener("click", () => {
     if (!selectedSize) {
@@ -123,7 +118,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     const cartItem = {
-      id: id,
+      id,
       name: product.name,
       brand: product.brand,
       size: selectedSize.textContent,
@@ -135,7 +130,6 @@ window.addEventListener("DOMContentLoaded", () => {
     cart.push(cartItem);
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    // 添加后按钮短暂显示为“已添加”
     addBtn.disabled = true;
     addBtn.textContent = "Added!";
     setTimeout(() => {
@@ -144,11 +138,11 @@ window.addEventListener("DOMContentLoaded", () => {
     }, 1500);
   });
 
- // ====== 图标点击跳转购物车页 ======
-document.getElementById("cart-icon").addEventListener("click", () => {
-  window.location.href = "CartPage.html";
-});
-document.getElementById("bag-icon").addEventListener("click", () => {
-  window.location.href = "CartPage.html";
-});
+  // 图标跳转
+  document.getElementById("cart-icon")?.addEventListener("click", () => {
+    window.location.href = "CartPage.html";
+  });
+  document.getElementById("bag-icon")?.addEventListener("click", () => {
+    window.location.href = "CartPage.html";
+  });
 });
