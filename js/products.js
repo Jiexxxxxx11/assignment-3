@@ -114,7 +114,6 @@ const products = {
     sale: false,
     category: "tops",
     gender: "man",
-    brand: "stoneisland",
     images: [
       "images/product-list/stoneisland.webp",
       "images/product-list/stoneisland2.webp",
