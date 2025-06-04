@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SUPPLY. - ProductList</title>
 
-    <!-- 引入产品列表页的样式 -->
+    <!-- 引用：css/ProductList.css（注意：从根目录开始，不要写 ../css） -->
     <link rel="stylesheet" href="css/ProductList.css" />
   </head>
   <body>
@@ -28,7 +28,7 @@
               clip-rule="evenodd"
             />
           </svg>
-          <!-- 搜索输入框 -->
+          <!-- 搜索输入框（默认隐藏） -->
           <input
             type="text"
             id="searchInput"
@@ -39,11 +39,11 @@
         </div>
       </div>
 
-      <!-- 点击LOGO跳转首页 -->
+      <!-- 点击 Logo 跳转回首页（index.html） -->
       <h1 class="logo" onclick="location.href='index.html'">SUPPLY.</h1>
 
       <div class="nav-right">
-        <!-- 菜单图标 -->
+        <!-- 菜单图标（点击后会打开 / 关闭侧边菜单） -->
         <svg
           id="menuIcon"
           xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +59,7 @@
           />
         </svg>
 
-        <!-- 购物车链接 -->
+        <!-- 购物车链接，跳到 CartPage.html -->
         <a href="CartPage.html">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -76,13 +76,11 @@
     </header>
 
     <main>
-      <!-- 分类按钮导航 -->
+      <!-- 分类按钮 -->
       <nav class="category">
         <ul>
           <li>
-            <button class="nav-button active" data-type="new">
-              NEW ARRIVALS
-            </button>
+            <button class="nav-button active" data-type="new">NEW ARRIVALS</button>
           </li>
           <li><button class="nav-button" data-gender="man">MAN</button></li>
           <li><button class="nav-button" data-gender="woman">WOMAN</button></li>
@@ -94,37 +92,32 @@
         </ul>
       </nav>
 
-      <!-- 当前分类标题 -->
+      <!-- 当前分类标题（由 productlist.js 动态替换） -->
       <h2 id="category-title" class="section-title">New Arrivals</h2>
 
-      <!-- 产品展示区域 -->
+      <!-- 产品网格容器 （由 productlist.js 填充）-->
       <section class="product-grid" id="productGrid"></section>
 
-      <!-- 加载更多按钮 -->
+      <!-- “加载更多”按钮 -->
       <div style="text-align: center; margin: 40px 0">
         <button id="load-more" class="btn">LOAD MORE</button>
       </div>
 
-      <!-- 分类侧边菜单 -->
+      <!-- 侧边菜单（移动端点击菜单图标会显示）-->
       <div class="side-menu" id="sideMenu">
         <ul class="category-list">
-          <li>
-            <a href="category.html?type=shoes" class="category-link"> Shoes</a>
-          </li>
-          <li>
-            <a href="category.html?type=tops" class="category-link"> Tops</a>
-          </li>
-          <li><a> Bottoms</a></li>
-          <li><a> Accessories</a></li>
-          <li><a> Toys</a></li>
+          <li><a href="category.html?type=shoes"  class="category-link">Shoes</a></li>
+          <li><a href="category.html?type=tops"   class="category-link">Tops</a></li>
+          <li><a>Bottoms</a></li>
+          <li><a>Accessories</a></li>
+          <li><a>Toys</a></li>
         </ul>
       </div>
-
-      <!-- 遮罩层 -->
+      <!-- 灰色遮罩层（点击时关闭侧边菜单） -->
       <div class="overlay" id="overlay"></div>
     </main>
 
-    <!-- 功能脚本：菜单 / 搜索 / 数据加载逻辑 -->
+    <!-- ★ 引用脚本：js/menu.js / js/search.js / js/products.js / js/productlist.js ★ -->
     <script src="js/menu.js"></script>
     <script src="js/search.js"></script>
     <script src="js/products.js"></script>

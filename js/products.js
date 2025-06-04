@@ -1,3 +1,5 @@
+// js/products.js
+
 const products = {
   "stussy01": {
     brand: "STUSSY",
@@ -9,6 +11,7 @@ const products = {
     gender: "man",
     sale: "sale",
     images: [
+      // ★ 从根目录开始的正确路径 ★
       "images/product-list/stussyhat.jpg.webp",
       "images/product-list/stussyhat2.webp",
       "images/product-list/stussyhat3.webp",
@@ -114,6 +117,7 @@ const products = {
     sale: false,
     category: "tops",
     gender: "man",
+    brand: "stoneisland",
     images: [
       "images/product-list/stoneisland.webp",
       "images/product-list/stoneisland2.webp",
@@ -126,3 +130,5 @@ const products = {
     reviews: []
   }
 };
+
+// （后续 productlist.js、productPage.js 等文件无需改动，只要引用这个 products.js 即可）
