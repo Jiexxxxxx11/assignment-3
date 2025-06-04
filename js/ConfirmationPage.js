@@ -81,7 +81,7 @@ window.addEventListener("DOMContentLoaded", () => {
       }
 
       // 页面跳转到产品列表页
-      window.location.href = "../html/ProductList.html";
+      window.location.href = "ProductList.html";
     });
   }
 });
