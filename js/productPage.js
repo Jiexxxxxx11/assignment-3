@@ -151,8 +151,4 @@ document.getElementById("cart-icon").addEventListener("click", () => {
 document.getElementById("bag-icon").addEventListener("click", () => {
   window.location.href = "CartPage.html";
 });
-  // ====== 返回按钮逻辑 ======
-  document.querySelector(".btn-back").addEventListener("click", () => {
-    window.history.back();
-  });
 });
