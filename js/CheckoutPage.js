@@ -85,6 +85,6 @@ window.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     // 跳转到订单确认页
-    window.location.href = "../html/ConfirmationPage.html";
+    window.location.href = "ConfirmationPage.html";
   });
 });
