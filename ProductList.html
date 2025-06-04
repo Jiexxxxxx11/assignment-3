@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SUPPLY. - ProductList</title>
-    <link rel="stylesheet" href="../css/ProductList.css" />
+
+    <!-- 引入产品列表页的样式 -->
+    <link rel="stylesheet" href="css/ProductList.css" />
   </head>
   <body>
-    <!-- Navigation Bar -->
+    <!-- 顶部导航栏 -->
     <header class="navbar">
       <div class="nav-left">
         <div class="search-wrapper">
+          <!-- 搜索图标 -->
           <svg
             id="searchIcon"
             xmlns="http://www.w3.org/2000/svg"
@@ -25,6 +28,7 @@
               clip-rule="evenodd"
             />
           </svg>
+          <!-- 搜索输入框 -->
           <input
             type="text"
             id="searchInput"
@@ -35,8 +39,11 @@
         </div>
       </div>
 
-      <h1 class="logo" onclick="location.href='homepage.html'">SUPPLY.</h1>
+      <!-- 点击LOGO跳转首页 -->
+      <h1 class="logo" onclick="location.href='index.html'">SUPPLY.</h1>
+
       <div class="nav-right">
+        <!-- 菜单图标 -->
         <svg
           id="menuIcon"
           xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +58,8 @@
             clip-rule="evenodd"
           />
         </svg>
+
+        <!-- 购物车链接 -->
         <a href="CartPage.html">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +76,7 @@
     </header>
 
     <main>
-      <!-- Category -->
+      <!-- 分类按钮导航 -->
       <nav class="category">
         <ul>
           <li>
@@ -85,16 +94,18 @@
         </ul>
       </nav>
 
+      <!-- 当前分类标题 -->
       <h2 id="category-title" class="section-title">New Arrivals</h2>
 
-      <!-- Product Grid -->
+      <!-- 产品展示区域 -->
       <section class="product-grid" id="productGrid"></section>
 
+      <!-- 加载更多按钮 -->
       <div style="text-align: center; margin: 40px 0">
         <button id="load-more" class="btn">LOAD MORE</button>
       </div>
 
-      <!-- category menu -->
+      <!-- 分类侧边菜单 -->
       <div class="side-menu" id="sideMenu">
         <ul class="category-list">
           <li>
@@ -108,13 +119,15 @@
           <li><a> Toys</a></li>
         </ul>
       </div>
-      <!-- Overlay -->
+
+      <!-- 遮罩层 -->
       <div class="overlay" id="overlay"></div>
     </main>
 
-    <script src="../js/menu.js"></script>
-    <script src="../js/search.js"></script>
-    <script src="../js/products.js"></script>
-    <script src="../js/productlist.js"></script>
+    <!-- 功能脚本：菜单 / 搜索 / 数据加载逻辑 -->
+    <script src="js/menu.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/productlist.js"></script>
   </body>
 </html>
