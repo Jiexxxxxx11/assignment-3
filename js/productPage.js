@@ -152,10 +152,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // ====== 图标点击跳转购物车页面 ======
   document.getElementById("cart-icon").addEventListener("click", () => {
-    window.location.href = "cartPage.html";
+    window.location.href = "CartPage.html";
   });
 
   document.getElementById("bag-icon").addEventListener("click", () => {
-    window.location.href = "cartPage.html";
+    window.location.href = "CartPage.html";
   });
 });
