@@ -71,7 +71,63 @@
 
     <!-- 主体区域：图片 + 详情 -->
     <main class="product-container">
-      <!-- ... 省略产品展示区 ... -->
+      <div class="left-section">
+        <img class="main-image" src="" alt="Main Product Image" />
+        <div class="thumbnail-images"></div>
+      </div>
+
+      <div class="right-section">
+        <h2 class="brand"></h2>
+        <h1 class="name"></h1>
+        <p class="price"></p>
+        <p class="color"></p>
+
+        <div class="size-options"></div>
+
+        <button class="btn-add">ADD TO BAG</button>
+
+        <div class="favourite-wrapper">
+          <button id="fav-btn" class="favourite-button">
+            <svg
+              id="icon-empty"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <!-- empty heart icon path -->
+              <path d="..." />
+            </svg>
+            <svg
+              id="icon-filled"
+              width="24"
+              height="24"
+              fill="currentColor"
+              style="display: none"
+            >
+              <!-- filled heart icon path -->
+              <path d="..." />
+            </svg>
+          </button>
+        </div>
+
+        <div class="description-section">
+          <h3>Description</h3>
+          <p class="description"></p>
+        </div>
+
+        <div class="details-section">
+          <h3>Details</h3>
+          <p class="details-text"></p>
+        </div>
+
+        <div class="delivery-section">
+          <h3>Delivery & Returns</h3>
+          <p class="delivery-text"></p>
+        </div>
+
+        <div class="review-section"></div>
+      </div>
     </main>
 
     <!-- 引入页面逻辑脚本（根目录/js/...） -->
