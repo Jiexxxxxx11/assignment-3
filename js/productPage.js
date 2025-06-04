@@ -144,12 +144,10 @@ window.addEventListener("DOMContentLoaded", () => {
     }, 1500);
   });
 
-  // ====== 图标点击跳转购物车页 ======
-  document.getElementById("cart-icon").addEventListener("click", () => {
-    window.location.href = "CartPage.html";
-  });
-
-  document.getElementById("bag-icon").addEventListener("click", () => {
-    window.location.href = "CartPage.html";
-  });
+ // ====== 图标点击跳转购物车页 ======
+document.getElementById("cart-icon").addEventListener("click", () => {
+  window.location.href = "CartPage.html";
+});
+document.getElementById("bag-icon").addEventListener("click", () => {
+  window.location.href = "CartPage.html";
 });
