@@ -4,13 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>categorypage</title>
-    <link rel="stylesheet" href="../css/ProductList.css" />
+    <!-- 引入产品列表样式，用于分类页面复用 -->
+    <link rel="stylesheet" href="css/ProductList.css" />
   </head>
   <body>
-    <!-- Navigation Bar -->
+    <!-- 顶部导航栏 -->
     <header class="navbar">
       <div class="nav-left">
         <div class="search-wrapper">
+          <!-- 搜索图标 + 输入框 -->
           <svg
             id="searchIcon"
             xmlns="http://www.w3.org/2000/svg"
@@ -35,8 +37,11 @@
         </div>
       </div>
 
-      <h1 class="logo" onclick="location.href='homepage.html'">SUPPLY.</h1>
+      <!-- 网站 logo，可点击跳转首页 -->
+      <h1 class="logo" onclick="location.href='index.html'">SUPPLY.</h1>
+
       <div class="nav-right">
+        <!-- 菜单图标 -->
         <svg
           id="menuIcon"
           xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +56,8 @@
             clip-rule="evenodd"
           />
         </svg>
+
+        <!-- 购物车链接 -->
         <a href="CartPage.html">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -66,17 +73,20 @@
       </div>
     </header>
 
+    <!-- 主内容区域 -->
     <main>
+      <!-- 分类标题 -->
       <h2 id="category-title" class="category-title">Category</h2>
 
-      <!-- Product Grid -->
+      <!-- 产品网格展示区域 -->
       <section class="product-grid" id="productGrid"></section>
 
+      <!-- 加载更多按钮 -->
       <div style="text-align: center; margin: 40px 0">
         <button id="load-more" class="btn">LOAD MORE</button>
       </div>
 
-      <!-- category menu -->
+      <!-- 分类菜单 -->
       <div class="side-menu" id="sideMenu">
         <ul class="category-list">
           <li>
@@ -90,12 +100,14 @@
           <li><a> Toys</a></li>
         </ul>
       </div>
-      <!-- Overlay -->
+
+      <!-- 蒙版层 -->
       <div class="overlay" id="overlay"></div>
     </main>
 
-    <script src="../js/menu.js"></script>
-    <script src="../js/products.js"></script>
-    <script src="../js/category.js"></script>
+    <!-- 页面脚本逻辑：菜单、产品数据、分类筛选 -->
+    <script src="js/menu.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/category.js"></script>
   </body>
 </html>

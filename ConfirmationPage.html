@@ -3,13 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SUPPLY. - ProductList</title>
-    <link rel="stylesheet" href="../css/ConfirmationPage.css" />
+    <title>SUPPLY. - Confirmation</title>
+    <!-- ✅ 引入页面样式 -->
+    <link rel="stylesheet" href="css/ConfirmationPage.css" />
   </head>
+
   <body>
-    <!-- Navigation Bar -->
+    <!-- ✅ 顶部导航栏 -->
     <header class="navbar">
       <div class="nav-left">
+        <!-- 搜索图标 -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -24,8 +27,11 @@
           />
         </svg>
       </div>
+
       <h1 class="logo">SUPPLY.</h1>
+
       <div class="nav-right">
+        <!-- 菜单图标 -->
         <svg
           id="menuIcon"
           xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +46,8 @@
             clip-rule="evenodd"
           />
         </svg>
+
+        <!-- 购物车图标 -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -53,29 +61,32 @@
       </div>
     </header>
 
+    <!-- ✅ 页面主体 -->
     <main>
       <div class="confirmation-container">
         <h1>THANK YOU!</h1>
 
-        <!-- ✅ 商品展示区 -->
+        <!-- ✅ 商品订单区 -->
         <div class="order-box">
           <div id="order-product-list">
-            <!-- JS 动态插入商品项 -->
+            <!-- JS 动态渲染商品 -->
           </div>
         </div>
 
-        <!-- ✅ 信息展示 -->
+        <!-- ✅ 订单信息 -->
         <p>Order Number: <strong id="order-id"></strong></p>
         <p>Expected delivery by <strong id="delivery-date"></strong></p>
 
-        <!-- ✅ 按钮 -->
+        <!-- ✅ 返回按钮 -->
         <div class="button-group">
-          <a href="../html/ProductList.html" class="btn btn-continue-shopping"
+          <a href="ProductList.html" class="btn btn-continue-shopping"
             >Continue Shopping</a
           >
         </div>
       </div>
     </main>
-    <script src="../js/ConfirmationPage.js"></script>
+
+    <!-- ✅ 页面逻辑脚本 -->
+    <script src="js/ConfirmationPage.js"></script>
   </body>
 </html>

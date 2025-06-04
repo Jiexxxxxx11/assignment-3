@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SUPPLY. - productPage</title>
 
-    <link rel="stylesheet" href="../css/ProductPage.css" />
+    <!-- 引入产品详情页样式 -->
+    <link rel="stylesheet" href="css/ProductPage.css" />
   </head>
   <body>
-    <!-- Navigation Bar2 -->
+    <!-- 顶部导航栏 -->
     <header class="navbar">
       <div class="nav-left">
-        <a href="../html/ProductList.html">
+        <!-- 返回产品列表页 -->
+        <a href="ProductList.html">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -32,9 +34,11 @@
         </a>
       </div>
 
-      <h1 class="logo" onclick="location.href='homepage.html'">SUPPLY.</h1>
+      <!-- 点击 Logo 跳转首页 -->
+      <h1 class="logo" onclick="location.href='index.html'">SUPPLY.</h1>
 
       <div class="nav-right">
+        <!-- 收藏夹图标 -->
         <div class="nav-icons" id="bag-icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -49,6 +53,7 @@
           <span class="red-dot" id="heart"></span>
         </div>
 
+        <!-- 购物车图标 -->
         <div class="nav-icons" id="cart-icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -65,27 +70,36 @@
       </div>
     </header>
 
+    <!-- 主体区域：图片 + 详情 -->
     <main class="product-container">
       <div class="gallery">
         <div class="side-column">
+          <!-- 预览缩略图 -->
           <div class="thumbnail-images"></div>
         </div>
+        <!-- 主图 -->
         <img class="main-image" src="" alt="Main product image" />
       </div>
 
       <div class="product-details">
+        <!-- 产品信息 -->
         <h2 class="brand"></h2>
         <p class="name"></p>
         <p class="color"></p>
         <p class="price"></p>
         <p class="description"></p>
 
+        <!-- 尺寸选择 -->
         <label>Select Size:</label>
         <div class="size-options"></div>
 
+        <!-- 用户评价区域 -->
         <div class="review-section"></div>
 
+        <!-- 添加按钮 -->
         <button class="btn-add">ADD TO BAG</button>
+
+        <!-- 收藏按钮（带心形图标） -->
         <button class="btn-fav" id="fav-btn">
           <span class="fav-icon">
             <!-- 空心心 -->
@@ -124,6 +138,7 @@
           <span class="fav">Favourite</span>
         </button>
 
+        <!-- 可折叠说明模块 -->
         <div class="accordion">
           <div>
             <button class="accordion-header">Free Delivery and Returns</button>
@@ -141,8 +156,9 @@
       </div>
     </main>
 
-    <script src="../js/products.js"></script>
-    <script src="../js/productPage.js"></script>
-    <script src="../js/icons.js"></script>
+    <!-- 引入页面逻辑脚本 -->
+    <script src="js/products.js"></script>
+    <script src="js/productPage.js"></script>
+    <script src="js/icons.js"></script>
   </body>
 </html>
