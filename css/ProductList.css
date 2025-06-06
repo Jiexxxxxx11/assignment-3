@@ -81,7 +81,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    flex-wrap: wrap;/* for mobile */
+    flex-wrap: wrap;
   }
 
   .category li{
@@ -126,7 +126,7 @@
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 24px;
     padding: 20px;
-    max-width: 950px; /* max width for desktop */
+    max-width: 950px;
     margin:auto;
   }
 
@@ -223,13 +223,13 @@
     object-fit: cover;
   }
 
-  /* ---- product text setting ---- */
+  /* ---- text setting ---- */
   .product-info {
     padding: 16px;
     text-align: center;
   }
 
-  /* ---- product brand ---- */
+  /* ---- brand ---- */
   .product-info h3 {
     font-size: 14px;
     color: rgba(182, 192, 201, 0.85);
@@ -238,7 +238,7 @@
     text-transform: uppercase;
   }
 
-  /* ---- product name ---- */
+  /* ---- name ---- */
   .product-info p {
     font-size: 16px;
     color: #444;
@@ -296,7 +296,7 @@
     .category li {
       font-size: 14px;      
       padding-bottom: 4px;
-      white-space: nowrap;    /* 防止内容换行 */
+      white-space: nowrap; 
     }
     
     .product-grid {
@@ -320,14 +320,12 @@
       font-size: 16px;
       margin-bottom: 12px;
     }
-
-    /* 按钮缩小 */
+  
     .btn {
     padding: 10px 20px;
     font-size: 14px;
 }
 
-/* Load more 按钮居中 */
   #load-more {
   width: 80%;
   max-width: 300px;

@@ -221,7 +221,6 @@ body {
   padding: 4px 0;
 }
 
-/* ---- responsive adjustments ---- */
 @media (max-width: 768px) {
   .product-container {
     flex-direction: column;

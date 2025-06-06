@@ -1,22 +1,20 @@
 window.addEventListener("DOMContentLoaded", () => {
-  // 从 localStorage 中获取购物车数据（若为空则为 []）
+  // get the data from cartpage
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // 获取 DOM 元素
-  const summaryListContainer = document.getElementById("checkout-summary-products"); // 商品展示容器
-  const subtotalSpan = document.querySelector(".summary-row span:last-child"); // 小计显示区域
-  const totalNum = document.getElementById("total-num"); // 总计显示区域
-  const form = document.getElementById("checkout-info"); // 表单
-  const submitBtn = document.querySelector(".btn-checkout"); // 提交按钮
+  const summaryListContainer = document.getElementById("checkout-summary-products"); 
+  const subtotalSpan = document.querySelector(".summary-row span:last-child"); 
+  const totalNum = document.getElementById("total-num"); 
+  const form = document.getElementById("checkout-info"); 
+  const submitBtn = document.querySelector(".btn-checkout"); 
 
-  // --- 渲染商品信息 ---
+  // get products info 
   let subtotal = 0;
   summaryListContainer.innerHTML = "";
 
   cart.forEach(item => {
     subtotal += item.price;
 
-    // 创建每个商品的展示块
     const itemDiv = document.createElement("div");
     itemDiv.className = "checkout-product";
     itemDiv.innerHTML = `
@@ -33,37 +31,36 @@ window.addEventListener("DOMContentLoaded", () => {
     summaryListContainer.appendChild(itemDiv);
   });
 
-  // 显示价格合计
+  // caculate subtotal price
   subtotalSpan.textContent = `$${subtotal.toFixed(2)} AUD`;
   totalNum.textContent = `$${subtotal.toFixed(2)} AUD`;
 
-  // --- 支付方式选择按钮 ---
+  //payment methods choiced 
   document.querySelectorAll(".pay-icon").forEach(button => {
     button.addEventListener("click", () => {
       const isSelected = button.classList.contains("selected");
 
-      // 先清除所有按钮的选中状态
+      // clear the btn be choiced style 
       document.querySelectorAll(".pay-icon").forEach(btn => btn.classList.remove("selected"));
 
-      // 如果当前按钮原本未选中，则添加选中状态
+      // if the btn not be selected, be selected 
       if (!isSelected) {
         button.classList.add("selected");
       }
-      // 否则点击的是已选中项，不作操作
     });
   });
 
-  // --- 提交订单表单 ---
+  // submit customers details 
   submitBtn.addEventListener("click", (e) => {
-    e.preventDefault(); // 阻止默认提交行为
+    e.preventDefault(); 
 
-    // 如果表单未填写完整，提示用户
+    // if isn't be filled, return tips 
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
 
-    // 获取用户填写信息
+    // get the customers patment methods and details
     const selectedPayment = document.querySelector(".pay-icon.selected");
 
     const userInfo = {
@@ -79,12 +76,12 @@ window.addEventListener("DOMContentLoaded", () => {
       paymentMethod: selectedPayment ? selectedPayment.textContent.trim() : "Not selected",
     };
 
-    // 保存信息到 localStorage
+    // save these info to localstorage 
     localStorage.setItem("userInfo", JSON.stringify(userInfo));
     localStorage.setItem("paymentMethod", userInfo.paymentMethod);
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    // 跳转到订单确认页
+    // link to confirmation page 
     window.location.href = "ConfirmationPage.html";
   });
 });

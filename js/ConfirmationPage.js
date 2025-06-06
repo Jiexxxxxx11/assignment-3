@@ -1,21 +1,20 @@
 window.addEventListener("DOMContentLoaded", () => {
-  // 获取订单展示容器和信息展示区域
   const orderListContainer = document.getElementById("order-product-list");
-  const orderNumberDisplay = document.getElementById("order-id"); // 显示订单编号
-  const deliveryDateDisplay = document.getElementById("delivery-date"); // 显示预计送达日期
+  const orderNumberDisplay = document.getElementById("order-id"); 
+  const deliveryDateDisplay = document.getElementById("delivery-date"); 
 
-  // 获取购物车和付款方式数据
+  // get the products info 
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   let paymentMethod = localStorage.getItem("paymentMethod");
 
-  // ✅ 若用户未选择付款方式，设为默认 "Credit Card"
+  // if customer didn't choice patment method，default "Credit Card"
   if (!paymentMethod || paymentMethod === "Not selected" || paymentMethod === "Not specified") {
     paymentMethod = "Credit Card";
   }
 
   let subtotal = 0;
 
-  // --- 渲染每个商品信息 ---
+  // get product info from products.js
   cart.forEach((item) => {
     subtotal += item.price;
 
@@ -35,7 +34,7 @@ window.addEventListener("DOMContentLoaded", () => {
     orderListContainer.appendChild(itemDiv);
   });
 
-  // --- 生成随机订单号 ---
+  // generate random order num
   const generateOrderId = () => {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     let id = "";
@@ -45,7 +44,7 @@ window.addEventListener("DOMContentLoaded", () => {
     return id;
   };
 
-  // --- 获取预计送达日期（+3天） ---
+  // delivery date expected, add 3 days
   const getDeliveryDate = () => {
     const date = new Date();
     date.setDate(date.getDate() + 3);
@@ -57,30 +56,29 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // 显示订单号与送达时间
   orderNumberDisplay.textContent = generateOrderId();
   deliveryDateDisplay.textContent = getDeliveryDate();
 
-  // ✅ 显示付款方式与订单总价
+  // show all the info about the order 
   const finalPaymentMethod = paymentMethod === "Not specified" ? "Credit/Debit Card" : paymentMethod;
   const paymentNote = document.createElement("p");
   paymentNote.innerHTML = `Payment Method: <strong>${finalPaymentMethod}</strong><br>Total: <strong>$${subtotal.toFixed(2)} AUD</strong>`;
   orderListContainer.appendChild(paymentNote);
 
-  // ✅ 点击 Continue Shopping 时，清除除 favourites 以外的所有数据
+  // when click continue btn, clear all data in cart 
   const continueBtn = document.querySelector(".btn.btn-continue-shopping");
   if (continueBtn) {
     continueBtn.addEventListener("click", (e) => {
       e.preventDefault();
 
-      // 只保留 favourites 数据
+      // only keep favourite items 
       const favourites = localStorage.getItem("favourites");
       localStorage.clear();
       if (favourites) {
         localStorage.setItem("favourites", favourites);
       }
 
-      // 页面跳转到产品列表页
+      // jump to productlist continue shopping 
       window.location.href = "ProductList.html";
     });
   }

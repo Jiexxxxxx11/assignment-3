@@ -4,17 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SUPPLY. - Checkout</title>
-    <!-- ✅ 引入结账页面样式 -->
     <link rel="stylesheet" href="css/CheckoutPage.css" />
-    <!-- ✅ 引入结账页面逻辑 -->
     <script src="js/CheckoutPage.js" defer></script>
   </head>
 
   <body>
-    <!-- ✅ 顶部导航栏 -->
+    <!-- nav bar-->
     <header class="navbar">
       <div class="nav-left">
-        <!-- 返回购物车页面 -->
         <a href="CartPage.html">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -36,11 +33,9 @@
         </a>
       </div>
 
-      <!-- Logo 标题 -->
       <h1 class="logo">SUPPLY.</h1>
 
       <div class="nav-right">
-        <!-- 收藏图标 -->
         <div class="nav-icons" id="bag-icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +50,6 @@
           <span class="red-dot" id="heart"></span>
         </div>
 
-        <!-- 购物车图标 -->
         <div class="nav-icons" id="cart-icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -72,19 +66,15 @@
       </div>
     </header>
 
-    <!-- ✅ 页面主要内容区 -->
     <main>
       <div class="cart-container">
         <div class="cart-content">
-          <!-- ✅ 左侧：配送与支付信息表单 -->
           <div class="cart-left checkout-left">
             <h1>BAG</h1>
             <h3>Delivery Options</h3>
-
-            <!-- 填写地址与联系方式 -->
+            <!-- customer info -->
             <form id="checkout-info">
               <div class="delivery-form">
-                <!-- 姓名 -->
                 <div class="input-row">
                   <div class="input-group">
                     <label for="first-name">First Name</label>
@@ -96,11 +86,9 @@
                   </div>
                 </div>
 
-                <!-- 街道地址 -->
                 <label for="address">Street Address</label>
                 <input type="text" id="address" required />
 
-                <!-- 地区与城市 -->
                 <div class="input-row">
                   <div class="input-group">
                     <label for="suburb">Suburb</label>
@@ -112,7 +100,6 @@
                   </div>
                 </div>
 
-                <!-- 州与邮编 -->
                 <div class="input-row">
                   <div class="input-group">
                     <label for="state">State</label>
@@ -136,7 +123,6 @@
                   </div>
                 </div>
 
-                <!-- 联系方式 -->
                 <label for="email">Email</label>
                 <input type="email" id="email" required />
                 <label for="phone">Phone Number</label>
@@ -144,7 +130,7 @@
               </div>
             </form>
 
-            <!-- ✅ 支付方式 -->
+            <!-- payment methods -->
             <h3>Payment</h3>
             <p>Select payment method</p>
             <div class="payment-methods">
@@ -166,11 +152,9 @@
             </div>
           </div>
 
-          <!-- ✅ 右侧：订单汇总信息 -->
           <div class="cart-summary">
             <h2>Summary</h2>
 
-            <!-- 优惠码 -->
             <div class="promo-section">
               <button id="promo" class="btn-promo">Promo Code</button>
               <div id="promo-input" class="hidden">
@@ -183,7 +167,6 @@
               </div>
             </div>
 
-            <!-- 金额汇总 -->
             <div class="summary-row">
               <span>Subtotal</span>
               <span>$00.00 AUD</span>
@@ -203,17 +186,15 @@
 
             <hr class="divider" />
 
-            <!-- ✅ 商品明细展示 -->
             <div id="checkout-summary-products"></div>
 
-            <!-- 提交按钮 -->
             <button class="btn-checkout">Submit Payment</button>
           </div>
         </div>
       </div>
     </main>
 
-    <!-- ✅ PayPal SVG图标定义 -->
+    <!-- PayPal SVG-->
     <svg style="display: none">
       <symbol id="icon-payment-paypal" viewBox="0 0 384 512">
         <path

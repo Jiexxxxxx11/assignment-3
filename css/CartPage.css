@@ -211,10 +211,10 @@
     border: none;
     cursor: pointer;
   
-    margin: 40px auto 0; /* 与 Summary 内容留间距，并居中 */
+    margin: 40px auto 0; 
     display: block;
     width: 100%;
-    max-width: 300px; /* 限制按钮宽度 */
+    max-width: 300px;
     text-align: center;
     transition: background-color 0.3s ease;
   }
@@ -252,7 +252,7 @@
     margin-top: 10px;
   }
 
-  /* Promo Input Field */
+  /* Promo Input */
 #promo-code {
     padding: 10px;
     border: 1px solid #ccc;
@@ -330,7 +330,6 @@
       display: flex;
       flex-direction: column;
     }
-  
   
     .cart-summary {
       width: 100%;

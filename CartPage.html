@@ -4,16 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SUPPLY. - Cart</title>
-    <!-- 引入购物车页面样式 -->
     <link rel="stylesheet" href="css/CartPage.css" />
-    <!-- 引入购物车逻辑脚本 -->
     <script src="js/cartPage.js" defer></script>
   </head>
   <body>
-    <!-- 顶部导航栏 -->
+    <!-- nav bar -->
     <header class="navbar">
       <div class="nav-left">
-        <!-- 返回产品列表 -->
+        <!-- back to productlist-->
         <a href="ProductList.html">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -35,11 +33,9 @@
         </a>
       </div>
 
-      <!-- 网站 Logo -->
       <h1 class="logo">SUPPLY.</h1>
 
       <div class="nav-right">
-        <!-- 收藏图标 -->
         <div class="nav-icons" id="bag-icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +50,6 @@
           <span class="red-dot" id="heart"></span>
         </div>
 
-        <!-- 购物车图标 -->
         <div class="nav-icons" id="cart-icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -71,27 +66,25 @@
       </div>
     </header>
 
-    <!-- 主体内容 -->
     <main>
       <div class="cart-container">
         <div class="cart-content">
-          <!-- 左侧购物车内容区 -->
           <div class="cart-left">
             <h1>BAG</h1>
 
-            <!-- 有商品时展示 -->
+            <!-- has items  -->
             <div class="cart-items hidden">
               <div class="cart-list"></div>
             </div>
 
-            <!-- 无商品时展示 -->
+            <!-- no item -->
             <div class="cart-empty">
               <p>There are no items in your bag.</p>
               <p class="hint">Go to get something !</p>
               <a href="ProductList.html" class="btn">Start Shopping</a>
             </div>
 
-            <!-- 收藏区 -->
+            <!-- fav area -->
             <div class="favourite-section hidden">
               <h2>Favourites</h2>
               <div class="favourite-list"></div>
@@ -99,11 +92,9 @@
             </div>
           </div>
 
-          <!-- 右侧汇总信息 -->
           <div class="cart-summary">
             <h2>Summary</h2>
-
-            <!-- 优惠码输入 -->
+            <!-- promo input -->
             <div class="promo-section">
               <button id="promo" class="btn-promo">Promo Code</button>
               <div id="promo-input">
@@ -116,13 +107,11 @@
               </div>
             </div>
 
-            <!-- 小计 -->
             <div class="summary-row">
               <span>Subtotal</span>
               <span>$00.00 AUD</span>
             </div>
 
-            <!-- 运费 -->
             <div class="summary-row">
               <span>Shipping</span>
               <span>Free</span>
@@ -130,7 +119,6 @@
 
             <hr class="divider" />
 
-            <!-- 总计 -->
             <div class="summary-row total">
               <strong>Total</strong>
               <strong id="total-num">$00.00 AUD</strong>
@@ -140,7 +128,6 @@
 
             <hr class="divider" />
 
-            <!-- 去结账按钮 -->
             <button class="go-checkout-btn">Go To Checkout</button>
           </div>
         </div>
